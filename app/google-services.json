@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "725619634894",
+    "firebase_url": "https://beepositive-1a122.firebaseio.com",
+    "project_id": "beepositive-1a122",
+    "storage_bucket": "beepositive-1a122.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725619634894:android:fb8f42beb0fab4892d569f",
+        "android_client_info": {
+          "package_name": "com.example.android.bee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725619634894-eq507eenidgc4urngevt7u01vmd3511r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.bee",
+            "certificate_hash": "6101235d34af0a4ccf7dffec19fcbb700a27c424"
+          }
+        },
+        {
+          "client_id": "725619634894-i150o6f88dg9truefkmnsvu01upgtu2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWHXKBVRQ-mHmyGmoXnAwxwD8KtGyT8vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725619634894-i150o6f88dg9truefkmnsvu01upgtu2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
