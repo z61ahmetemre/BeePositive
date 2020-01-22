@@ -125,6 +125,9 @@ public class SignupActivity extends AppCompatActivity implements Serializable, O
   public void onSignupSuccess() {
     _signupButton.setEnabled(true);
     setResult(RESULT_OK, null);
+
+    //Initialize the user with given informations
+
     Toast.makeText(SignupActivity.this, "Welcome to Bee+",
         Toast.LENGTH_SHORT).show();
     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
@@ -134,7 +137,7 @@ public class SignupActivity extends AppCompatActivity implements Serializable, O
   }
 
   public void onSignupFailed() {
-    Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
+    Toast.makeText(getBaseContext(), "SignUp failed", Toast.LENGTH_LONG).show();
 
     _signupButton.setEnabled(true);
   }
@@ -143,7 +146,9 @@ public class SignupActivity extends AppCompatActivity implements Serializable, O
     boolean valid = true;
 
     String name = _nameText.getText().toString();
-    int age = Integer.parseInt(_ageText.getText().toString());
+    int age = 0;
+    if(!_ageText.getText().toString().isEmpty())
+      age = Integer.parseInt(_ageText.getText().toString());
     String email = _emailText.getText().toString();
     String password = _passwordText.getText().toString();
 
@@ -155,7 +160,7 @@ public class SignupActivity extends AppCompatActivity implements Serializable, O
     }
 
     if(_ageText.getText().toString().isEmpty() || _ageText.getText().toString().length() > 2 || age < 7 || age > 99) {
-      _ageText.setError("invalid");
+      _ageText.setError("invalid age please check");
       valid = false;
     }
     else {
@@ -169,13 +174,15 @@ public class SignupActivity extends AppCompatActivity implements Serializable, O
       _emailText.setError(null);
     }
 
-    /*if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-      _passwordText.setError("between 4 and 10 alphanumeric characters");
+    if (password.isEmpty() || password.length() < 6 || password.length() > 10) {
+      _passwordText.setError("between 6 and 10 alphanumeric characters");
       valid = false;
     } else {
       _passwordText.setError(null);
-    }*/
+    }
 
+    if(valid)
+      _signupButton.setClickable(true);
     return valid;
   }
 

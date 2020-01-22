@@ -3,6 +3,7 @@ package com.example.android.bee;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -11,7 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.io.Serializable;
 
@@ -74,15 +79,40 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
 
     String email = _emailText.getText().toString();
     String password = _passwordText.getText().toString();
+    final boolean[] success = {false};
 
     // TODO: Implement your own authentication logic here.
+    mAuth.signInWithEmailAndPassword(email, password)
+        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+          @Override
+          public void onComplete(@NonNull Task<AuthResult> task) {
+            if (task.isSuccessful()) {
+              // Sign in success, update UI with the signed-in user's information
+              Log.d(TAG, "signInWithEmail:success");
+              FirebaseUser user = mAuth.getCurrentUser();
+              success[0] = true;
+              //updateUI(user);
+            } else {
+              // If sign in fails, display a message to the user.
+              Log.w(TAG, "signInWithEmail:failure", task.getException());
+              success[0] = false;
+              Toast.makeText(LoginActivity.this, "Authentication failed.",
+                  Toast.LENGTH_SHORT).show();
+              //updateUI(null);
+            }
+
+            // ...
+          }
+        });
 
     new android.os.Handler().postDelayed(
         new Runnable() {
           public void run() {
             // On complete call either onLoginSuccess or onLoginFailed
-            onLoginSuccess();
-            // onLoginFailed();
+            if(success[0])
+              onLoginSuccess();
+            else
+              onLoginFailed();
             progressDialog.dismiss();
           }
         }, 3000);
@@ -104,12 +134,14 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
   @Override
   public void onBackPressed() {
     // disable going back to the MainActivity
-    moveTaskToBack(true);
+    moveTaskToBack(false);
   }
 
   public void onLoginSuccess() {
     _loginButton.setEnabled(true);
-    finish();
+    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+    startActivityForResult(intent,0);
+    //finish();
   }
 
   public void onLoginFailed() {
@@ -131,8 +163,8 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
       _emailText.setError(null);
     }
 
-    if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-      _passwordText.setError("between 4 and 10 alphanumeric characters");
+    if (password.isEmpty() || password.length() < 6 || password.length() > 10) {
+      _passwordText.setError("between 6 and 10 alphanumeric characters");
       valid = false;
     } else {
       _passwordText.setError(null);
