@@ -1,5 +1,6 @@
 package com.example.android.bee;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,13 +12,25 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.io.Serializable;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import lombok.NonNull;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity implements Serializable, OnCompleteListener {
   private static final String TAG = "SignupActivity";
 
+  private FirebaseAuth mAuth;
+
   @BindView(R.id.input_name) EditText _nameText;
+  @BindView(R.id.input_age) EditText _ageText;
   @BindView(R.id.input_email) EditText _emailText;
   @BindView(R.id.input_password) EditText _passwordText;
   @BindView(R.id.btn_signup) Button _signupButton;
@@ -28,6 +41,7 @@ public class SignupActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_signup);
     ButterKnife.bind(this);
+    mAuth = FirebaseAuth.getInstance();
 
     _signupButton.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -40,7 +54,7 @@ public class SignupActivity extends AppCompatActivity {
       @Override
       public void onClick(View v) {
         // Finish the registration screen and return to the Login activity
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivityForResult(intent,0);
         //finish();
       }
@@ -66,16 +80,42 @@ public class SignupActivity extends AppCompatActivity {
     String name = _nameText.getText().toString();
     String email = _emailText.getText().toString();
     String password = _passwordText.getText().toString();
-
+    final boolean[] success = {false};
     // TODO: Implement your own signup logic here.
+    mAuth.createUserWithEmailAndPassword(email, password)
+        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+          @Override
+          public void onComplete(@NonNull Task<AuthResult> task) {
+            if (task.isSuccessful()) {
+              // Sign in success, update UI with the signed-in user's information
+              Log.d(TAG, "createUserWithEmail:success");
+              FirebaseUser user = mAuth.getCurrentUser();
+              success[0] = true;
+              //updateUI(user);
+            } else {
+              // If sign in fails, display a message to the user.
+              success[0] = false;
+              Log.w(TAG, "createUserWithEmail:failure", task.getException());
+              Toast.makeText(SignupActivity.this, "Authentication failed.",
+                  Toast.LENGTH_SHORT).show();
+              //updateUI(null);
+            }
+
+            // [START_EXCLUDE]
+            //hideProgressBar();
+            // [END_EXCLUDE]
+          }
+        });
 
     new android.os.Handler().postDelayed(
         new Runnable() {
           public void run() {
             // On complete call either onSignupSuccess or onSignupFailed
             // depending on success
-            onSignupSuccess();
-            // onSignupFailed();
+            if(success[0])
+              onSignupSuccess();
+            else
+              onSignupFailed();
             progressDialog.dismiss();
           }
         }, 3000);
@@ -85,7 +125,12 @@ public class SignupActivity extends AppCompatActivity {
   public void onSignupSuccess() {
     _signupButton.setEnabled(true);
     setResult(RESULT_OK, null);
-    finish();
+    Toast.makeText(SignupActivity.this, "Welcome to Bee+",
+        Toast.LENGTH_SHORT).show();
+    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+    startActivityForResult(intent,0);
+
+    //finish();
   }
 
   public void onSignupFailed() {
@@ -98,6 +143,7 @@ public class SignupActivity extends AppCompatActivity {
     boolean valid = true;
 
     String name = _nameText.getText().toString();
+    int age = Integer.parseInt(_ageText.getText().toString());
     String email = _emailText.getText().toString();
     String password = _passwordText.getText().toString();
 
@@ -108,6 +154,14 @@ public class SignupActivity extends AppCompatActivity {
       _nameText.setError(null);
     }
 
+    if(_ageText.getText().toString().isEmpty() || _ageText.getText().toString().length() > 2 || age < 7 || age > 99) {
+      _ageText.setError("invalid");
+      valid = false;
+    }
+    else {
+      _ageText.setError(null);
+    }
+
     if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
       _emailText.setError("enter a valid email address");
       valid = false;
@@ -115,13 +169,18 @@ public class SignupActivity extends AppCompatActivity {
       _emailText.setError(null);
     }
 
-    if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
+    /*if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
       _passwordText.setError("between 4 and 10 alphanumeric characters");
       valid = false;
     } else {
       _passwordText.setError(null);
-    }
+    }*/
 
     return valid;
+  }
+
+  @Override
+  public void onComplete(@android.support.annotation.NonNull Task task) {
+
   }
 }

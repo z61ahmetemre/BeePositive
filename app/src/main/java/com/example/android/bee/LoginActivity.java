@@ -11,12 +11,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.io.Serializable;
+
 import butterknife.ButterKnife;
 import butterknife.BindView;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements Serializable {
   private static final String TAG = "LoginActivity";
   private static final int REQUEST_SIGNUP = 0;
+
+  private FirebaseAuth mAuth;
 
   @BindView(R.id.input_email) EditText _emailText;
   @BindView(R.id.input_password) EditText _passwordText;
@@ -28,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_login);
     ButterKnife.bind(this);
+
+    mAuth = FirebaseAuth.getInstance();
 
     _loginButton.setOnClickListener(new View.OnClickListener() {
 

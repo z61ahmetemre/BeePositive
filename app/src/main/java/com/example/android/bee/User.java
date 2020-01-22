@@ -39,6 +39,7 @@ public class User {
   public void setName( String theName) {
     name = theName;
   }
+
   public void setUserID( String theID) {
     userID = theID;
   }
