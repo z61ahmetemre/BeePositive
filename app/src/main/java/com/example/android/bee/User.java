@@ -1,16 +1,73 @@
 package com.example.android.bee;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
+
+  private static User instance = new User();
+
   private String name;
   private String userID;
   private int sex;
   private double happinessPercentage;
   private int age;
-  private int[] hormones;
+  private int dopamine;
+  private int serotonin;
+  private int endorphins;
+  private int oxytocin;
   private String password;
   private boolean isRegistered;
-  private ServerManager sm;
+  private List<Double> happinessHistory;
+  private String notes;     //in profile users can store their own notes
+  private int testCounter;  //to know how many test is solved
 
+  public User() {
+    happinessHistory = new ArrayList<Double>();
+    happinessHistory.add(-1.0);
+  }
+
+  public static User getInstance() {
+    if(instance == null)
+      instance = new User();
+    return instance;
+  }
+
+  public int getTestCounter() { return testCounter;}
+
+  public void setTestCounter( int i) { testCounter = i;}
+
+  public List<Double> getHappinessHistory() { return happinessHistory;}
+
+  public void setHappinessHistory( List<Double> l) { happinessHistory = l;}
+
+  public String getNotes() { return notes;}
+
+  public void setNotes( String s) { notes = s;}
+
+  public int getDopamine() { return dopamine;}
+
+  public int getSerotonin() { return serotonin;}
+
+  public int getEndorphins() { return endorphins;}
+
+  public int getOxytocin() { return oxytocin;}
+
+  public void setDopamine( int i) { dopamine = i;}
+
+  public void setSerotonin( int i) { serotonin = i;}
+
+  public void setEndorphins( int i) { endorphins = i;}
+
+  public void setOxytocin( int i) { oxytocin = i;}
+
+  public double getHappinessPercentage() {
+    return happinessPercentage;
+  }
+
+  public void setHappinessPercentage( double d) {
+    happinessPercentage = d;
+  }
 
   public String getName() {
     return name;

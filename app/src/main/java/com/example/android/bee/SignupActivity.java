@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.Serializable;
 
@@ -28,6 +31,9 @@ public class SignupActivity extends AppCompatActivity implements Serializable, O
   private static final String TAG = "SignupActivity";
 
   private FirebaseAuth mAuth;
+  private ServerManager sm;
+  private User user;
+  private DatabaseReference mDatabase;
 
   @BindView(R.id.input_name) EditText _nameText;
   @BindView(R.id.input_age) EditText _ageText;
@@ -35,13 +41,22 @@ public class SignupActivity extends AppCompatActivity implements Serializable, O
   @BindView(R.id.input_password) EditText _passwordText;
   @BindView(R.id.btn_signup) Button _signupButton;
   @BindView(R.id.link_login) TextView _loginLink;
+  @BindView(R.id.male_button) RadioButton _maleButton;
+  @BindView(R.id.female_button) RadioButton _femaleButton;
+  @BindView(R.id.no_gender_button) RadioButton _noGenderButton;
+
+
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_signup);
     ButterKnife.bind(this);
+
     mAuth = FirebaseAuth.getInstance();
+    sm = ServerManager.getInstance();
+    user = User.getInstance();
+    mDatabase = FirebaseDatabase.getInstance().getReference();
 
     _signupButton.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -127,6 +142,20 @@ public class SignupActivity extends AppCompatActivity implements Serializable, O
     setResult(RESULT_OK, null);
 
     //Initialize the user with given informations
+    user.setName(_nameText.getText().toString());
+    user.setUserID(_emailText.getText().toString());
+    user.setAge(Integer.parseInt(_ageText.getText().toString()));
+    user.setPassword(_passwordText.getText().toString());
+    if(_maleButton.isChecked())
+      user.setSex(1);
+    else if (_femaleButton.isChecked())
+      user.setSex(0);
+    else if (_noGenderButton.isChecked())
+      user.setSex(-1);
+    user.setIsRegistered(true);
+
+    //Authentication is OK. Finish the creating account part.
+    sm.createAccount();
 
     Toast.makeText(SignupActivity.this, "Welcome to Bee+",
         Toast.LENGTH_SHORT).show();

@@ -7,7 +7,7 @@ public class Testing {
   static int dayCounter; //TO DO: Buna bir daha bak.
   User user;
 
-  //Constructiona bak
+  //Construction a bak
   Testing( User theUser, ServerManager s) {
     user = theUser;
     sm = s;

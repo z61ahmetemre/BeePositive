@@ -28,6 +28,8 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
   private static final int REQUEST_SIGNUP = 0;
 
   private FirebaseAuth mAuth;
+  private User user;
+  private ServerManager sm;
 
   @BindView(R.id.input_email) EditText _emailText;
   @BindView(R.id.input_password) EditText _passwordText;
@@ -41,6 +43,8 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
     ButterKnife.bind(this);
 
     mAuth = FirebaseAuth.getInstance();
+    user = User.getInstance();
+    sm = ServerManager.getInstance();
 
     _loginButton.setOnClickListener(new View.OnClickListener() {
 
@@ -89,7 +93,6 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
             if (task.isSuccessful()) {
               // Sign in success, update UI with the signed-in user's information
               Log.d(TAG, "signInWithEmail:success");
-              FirebaseUser user = mAuth.getCurrentUser();
               success[0] = true;
               //updateUI(user);
             } else {
@@ -139,6 +142,9 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
 
   public void onLoginSuccess() {
     _loginButton.setEnabled(true);
+
+    sm.syncronize();
+    //TODO: signupdan sonra buraya bak
     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
     startActivityForResult(intent,0);
     //finish();
@@ -157,14 +163,14 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
     String password = _passwordText.getText().toString();
 
     if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-      _emailText.setError("enter a valid email address");
+      _emailText.setError("Enter a valid email address");
       valid = false;
     } else {
       _emailText.setError(null);
     }
 
     if (password.isEmpty() || password.length() < 6 || password.length() > 10) {
-      _passwordText.setError("between 6 and 10 alphanumeric characters");
+      _passwordText.setError("Between 6 and 10 alphanumeric characters");
       valid = false;
     } else {
       _passwordText.setError(null);
