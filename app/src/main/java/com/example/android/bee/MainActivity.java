@@ -100,8 +100,10 @@ public class MainActivity extends AppCompatActivity
             view.setText("Activities");
         } else if (id == R.id.nav_food) {
             view.setText("food");
-        } else if (id == R.id.nav_hap_test) {
-            view.setText("happiness test");
+        } else if (id == R.id.nav_day_test) {
+            view.setText("daily test");
+        } else if (id == R.id.nav_week_test) {
+            view.setText("weekly test");
         } else if (id == R.id.nav_progress) {
             view.setText("progress");
         } else if (id == R.id.nav_settings) {
