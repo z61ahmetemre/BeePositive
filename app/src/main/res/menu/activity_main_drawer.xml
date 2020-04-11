@@ -21,9 +21,13 @@
             android:icon="@drawable/icons8_food_50_2"
             android:title="@string/menu_food" />
         <item
-            android:id="@+id/nav_hap_test"
+            android:id="@+id/nav_day_test"
             android:icon="@drawable/icons8_party_balloons_50"
-            android:title="@string/menu_hap_test" />
+            android:title="@string/menu_day_test" />
+        <item
+            android:id="@+id/nav_week_test"
+            android:icon="@drawable/icons8_in_progress_50_2"
+            android:title="@string/menu_week_test" />
         <item
             android:id="@+id/nav_progress"
             android:icon="@drawable/icons8_line_chart_50"

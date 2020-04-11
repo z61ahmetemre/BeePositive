@@ -40,7 +40,7 @@ public class ServerManager {
   }
 
   /**
-   * This method will pull the data of the user from database everytime opening app.
+   * This method will pull the data of the user from database every time opening app.
    * In User object, there is integer value storing test number. According to this
    * number method will search for tests data in database.
    * The test will be stored in database like this way:
