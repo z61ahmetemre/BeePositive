@@ -21,6 +21,7 @@ public class User {
   private List<Double> happinessHistory;
   private String notes;     //in profile users can store their own notes
   private int testCounter;  //to know how many test is solved
+  private String regisrationDate;
 
   public User() {
     happinessHistory = new ArrayList<Double>();
@@ -32,6 +33,10 @@ public class User {
       instance = new User();
     return instance;
   }
+
+  public String getRegisrationDate() { return regisrationDate;}
+
+  public void setRegisrationDate( String str) { regisrationDate = str;}
 
   public int getTestCounter() { return testCounter;}
 

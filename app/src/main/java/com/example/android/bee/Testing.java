@@ -8,9 +8,7 @@ public class Testing {
   User user;
 
   //Construction a bak
-  Testing( User theUser, ServerManager s) {
-    user = theUser;
-    sm = s;
+  Testing() {
 
   }
 

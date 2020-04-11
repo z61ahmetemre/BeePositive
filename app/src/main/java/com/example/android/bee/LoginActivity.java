@@ -16,7 +16,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.io.Serializable;
 
@@ -45,6 +44,8 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
     mAuth = FirebaseAuth.getInstance();
     user = User.getInstance();
     sm = ServerManager.getInstance();
+
+
 
     _loginButton.setOnClickListener(new View.OnClickListener() {
 

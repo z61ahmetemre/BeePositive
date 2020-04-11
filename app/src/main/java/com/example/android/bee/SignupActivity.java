@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -154,6 +156,12 @@ public class SignupActivity extends AppCompatActivity implements Serializable, O
       user.setSex(-1);
     user.setIsRegistered(true);
 
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    String date = sdf.format(new Date());
+    System.out.println(date);
+
+    user.setRegisrationDate(date);
+    
     //Authentication is OK. Finish the creating account part.
     sm.createAccount();
 

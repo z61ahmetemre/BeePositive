@@ -3,4 +3,8 @@
     <color name="colorPrimary">#ffaa66cc</color>
     <color name="colorPrimaryDark">#ffaa66cc</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="colorPrimarySplash">#ffaa66cc</color>
+    <color name="colorPrimaryDarkSplash">#8147A0</color>
+    <color name="colorAccentSplash">#D81B60</color>
 </resources>
