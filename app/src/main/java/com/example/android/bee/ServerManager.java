@@ -53,7 +53,7 @@ public class ServerManager {
       @Override
       public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
         user = dataSnapshot.getValue(User.class);
-        user.setNotes("YEDİ");
+        //user.setNotes("YEDİ");
         mDatabase.child("notes").child(mAuth.getUid()).setValue(user.getNotes());
       }
 
