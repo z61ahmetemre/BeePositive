@@ -23,6 +23,7 @@ public class User {
   private int testCounter;  //to know how many test is solved
   private String regisrationDate;
 
+
   public User() {
     happinessHistory = new ArrayList<Double>();
     happinessHistory.add(-1.0);

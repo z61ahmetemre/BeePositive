@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
   private static final String TAG = "LoginActivity";
   private static final int REQUEST_SIGNUP = 0;
 
+  
   private FirebaseAuth mAuth;
   private User user;
   private ServerManager sm;
