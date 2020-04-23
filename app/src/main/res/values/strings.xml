@@ -17,4 +17,34 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_logout">Logout</string>
     <string name="menu_quit">Quit</string>
+
+    <string name="question_1">1. I can find something positive in even the most difficult situations.</string>
+    <string name="question_2">2. I actively keep in touch with friends and family.</string>
+    <string name="question_3">3. I feel lonely.</string>
+    <string name="question_4">4. When times get tough, I turn to friends/family for support.</string>
+    <string name="question_5">5. When I find myself overwhelmed with stress, I shut down completely.</string>
+    <string name="question_6">6. When I\'m feeling down, I remind myself to focus on the good things in my life instead of the bad.</string>
+    <string name="question_7">7. When I have a difficult problem, I try to look at it from different angles in order to come up with a solution.</string>
+    <string name="question_8">8. I refuse to give up, no matter how tough things get.</string>
+    <string name="question_9">9. I believe that what can go wrong will go wrong.</string>
+    <string name="question_10">10. I am grateful for what I have, and appreciate it.</string>
+    <string name="question_11">11. I have a positive image of myself.</string>
+    <string name="question_12">12. I try to eat healthy and exercise for my health.</string>
+    <string name="question_13">13. Life is good.</string>
+    <string name="question_14">14. I think the world is a good place.</string>
+    <string name="question_15">15. I have very warm feelings towards almost everyone.</string>
+    <string name="question_16">16. Do you have people you can talk to who understand what you\’re going through? If you don\’t think so, why do you think that\’s the case?</string>
+    <string name="question_17">17. If you share your problems with people, how do you think they will react?</string>
+    <string name="question_18">18. What changes can help you feel better right now?</string>
+    <string name="question_19">19. Imagine you have all the money in the world for a week. You don\’t have to study, you don\’t have to work, anything is inside your hands. How would you spend this week?</string>
+    <string name="question_20">20. It is summer and you\'re at the seaside. Feeling the warmness of the sand under your feet you\'re walking towards your family and friends. As you come closer you see that they\'re smiling happily and laughing. What might be the reason for their happiness?</string>
+    <string name="question_21">21. Do you feel tired no matter how much you sleep? What kind of activities may improve your sleep quality and energize you?</string>
+
+    <string name="answer_1">Almost never</string>
+    <string name="answer_2">Rarely</string>
+    <string name="answer_3">Sometimes</string>
+    <string name="answer_4">Often</string>
+    <string name="answer_5">Most of the time</string>
+    <string name="answer_6">Please write your answer here</string>
+
 </resources>

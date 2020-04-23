@@ -83,6 +83,7 @@ public class SignupActivity extends AppCompatActivity implements Serializable, O
 
     if (!validate()) {
       onSignupFailed();
+      Log.w(TAG,"\n\n\n\naaaaaaaaaaaaa");
       return;
     }
 
@@ -129,10 +130,11 @@ public class SignupActivity extends AppCompatActivity implements Serializable, O
           public void run() {
             // On complete call either onSignupSuccess or onSignupFailed
             // depending on success
-            if(success[0])
-              onSignupSuccess();
-            else
+            if(success[0]){
+              onSignupSuccess();}
+            else{
               onSignupFailed();
+              Log.w(TAG,"\n\n\n\nfasdfasdfasdfasdfasdfsafdsaf");}
             progressDialog.dismiss();
           }
         }, 3000);
