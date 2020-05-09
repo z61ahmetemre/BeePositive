@@ -4,7 +4,7 @@ public class Testing {
   ServerManager sm;
   Test daily;
   Test weekly[];
-  static int dayCounter; //TO DO: Buna bir daha bak.
+  static int dayCounter; //TODO: Buna bir daha bak.
   User user;
 
   //Construction a bak

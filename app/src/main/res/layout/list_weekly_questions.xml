@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_height="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:padding="8dp">
 
     <TextView
@@ -12,41 +11,48 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_1"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <RadioGroup
             android:id="@+id/choice_group_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/q1_c5"
-                android:text="@string/answer_5"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_5" />
+
+            <RadioButton
                 android:id="@+id/q1_c4"
-                android:text="@string/answer_4"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_4" />
+
+            <RadioButton
                 android:id="@+id/q1_c3"
-                android:text="@string/answer_3"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_3" />
+
+            <RadioButton
                 android:id="@+id/q1_c2"
-                android:text="@string/answer_2"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_2" />
+
+            <RadioButton
                 android:id="@+id/q1_c1"
-                android:text="@string/answer_1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_1" />
         </RadioGroup>
 
     </LinearLayout>
@@ -57,41 +63,48 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_2"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <RadioGroup
             android:id="@+id/choice_group_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/q2_c5"
-                android:text="@string/answer_5"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_5" />
+
+            <RadioButton
                 android:id="@+id/q2_c4"
-                android:text="@string/answer_4"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_4" />
+
+            <RadioButton
                 android:id="@+id/q2_c3"
-                android:text="@string/answer_3"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_3" />
+
+            <RadioButton
                 android:id="@+id/q2_c2"
-                android:text="@string/answer_2"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_2" />
+
+            <RadioButton
                 android:id="@+id/q2_c1"
-                android:text="@string/answer_1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_1" />
         </RadioGroup>
 
     </LinearLayout>
@@ -102,41 +115,48 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_3"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <RadioGroup
             android:id="@+id/choice_group_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/q3_c5"
-                android:text="@string/answer_5"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_5" />
+
+            <RadioButton
                 android:id="@+id/q3_c4"
-                android:text="@string/answer_4"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_4" />
+
+            <RadioButton
                 android:id="@+id/q3_c3"
-                android:text="@string/answer_3"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_3" />
+
+            <RadioButton
                 android:id="@+id/q3_c2"
-                android:text="@string/answer_2"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_2" />
+
+            <RadioButton
                 android:id="@+id/q3_c1"
-                android:text="@string/answer_1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_1" />
         </RadioGroup>
 
     </LinearLayout>
@@ -147,41 +167,48 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_4"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <RadioGroup
             android:id="@+id/choice_group_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/q4_c5"
-                android:text="@string/answer_5"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_5" />
+
+            <RadioButton
                 android:id="@+id/q4_c4"
-                android:text="@string/answer_4"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_4" />
+
+            <RadioButton
                 android:id="@+id/q4_c3"
-                android:text="@string/answer_3"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_3" />
+
+            <RadioButton
                 android:id="@+id/q4_c2"
-                android:text="@string/answer_2"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_2" />
+
+            <RadioButton
                 android:id="@+id/q4_c1"
-                android:text="@string/answer_1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_1" />
         </RadioGroup>
 
     </LinearLayout>
@@ -192,41 +219,48 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_5"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <RadioGroup
             android:id="@+id/choice_group_5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/q5_c5"
-                android:text="@string/answer_5"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_5" />
+
+            <RadioButton
                 android:id="@+id/q5_c4"
-                android:text="@string/answer_4"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_4" />
+
+            <RadioButton
                 android:id="@+id/q5_c3"
-                android:text="@string/answer_3"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_3" />
+
+            <RadioButton
                 android:id="@+id/q5_c2"
-                android:text="@string/answer_2"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_2" />
+
+            <RadioButton
                 android:id="@+id/q5_c1"
-                android:text="@string/answer_1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_1" />
         </RadioGroup>
 
     </LinearLayout>
@@ -237,41 +271,48 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_6"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <RadioGroup
             android:id="@+id/choice_group_6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/q6_c5"
-                android:text="@string/answer_5"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_5" />
+
+            <RadioButton
                 android:id="@+id/q6_c4"
-                android:text="@string/answer_4"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_4" />
+
+            <RadioButton
                 android:id="@+id/q6_c3"
-                android:text="@string/answer_3"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_3" />
+
+            <RadioButton
                 android:id="@+id/q6_c2"
-                android:text="@string/answer_2"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_2" />
+
+            <RadioButton
                 android:id="@+id/q6_c1"
-                android:text="@string/answer_1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_1" />
         </RadioGroup>
 
     </LinearLayout>
@@ -282,41 +323,48 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_7"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <RadioGroup
             android:id="@+id/choice_group_7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/q7_c5"
-                android:text="@string/answer_5"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_5" />
+
+            <RadioButton
                 android:id="@+id/q7_c4"
-                android:text="@string/answer_4"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_4" />
+
+            <RadioButton
                 android:id="@+id/q7_c3"
-                android:text="@string/answer_3"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_3" />
+
+            <RadioButton
                 android:id="@+id/q7_c2"
-                android:text="@string/answer_2"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_2" />
+
+            <RadioButton
                 android:id="@+id/q7_c1"
-                android:text="@string/answer_1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_1" />
         </RadioGroup>
 
     </LinearLayout>
@@ -327,41 +375,48 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_8"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <RadioGroup
             android:id="@+id/choice_group_8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/q8_c5"
-                android:text="@string/answer_5"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_5" />
+
+            <RadioButton
                 android:id="@+id/q8_c4"
-                android:text="@string/answer_4"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_4" />
+
+            <RadioButton
                 android:id="@+id/q8_c3"
-                android:text="@string/answer_3"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_3" />
+
+            <RadioButton
                 android:id="@+id/q8_c2"
-                android:text="@string/answer_2"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_2" />
+
+            <RadioButton
                 android:id="@+id/q8_c1"
-                android:text="@string/answer_1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_1" />
         </RadioGroup>
 
     </LinearLayout>
@@ -372,41 +427,48 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_9"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <RadioGroup
             android:id="@+id/choice_group_9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/q9_c5"
-                android:text="@string/answer_5"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_5" />
+
+            <RadioButton
                 android:id="@+id/q9_c4"
-                android:text="@string/answer_4"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_4" />
+
+            <RadioButton
                 android:id="@+id/q9_c3"
-                android:text="@string/answer_3"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_3" />
+
+            <RadioButton
                 android:id="@+id/q9_c2"
-                android:text="@string/answer_2"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_2" />
+
+            <RadioButton
                 android:id="@+id/q9_c1"
-                android:text="@string/answer_1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_1" />
         </RadioGroup>
 
     </LinearLayout>
@@ -417,41 +479,48 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_10"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <RadioGroup
             android:id="@+id/choice_group_10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/q10_c5"
-                android:text="@string/answer_5"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_5" />
+
+            <RadioButton
                 android:id="@+id/q10_c4"
-                android:text="@string/answer_4"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_4" />
+
+            <RadioButton
                 android:id="@+id/q10_c3"
-                android:text="@string/answer_3"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_3" />
+
+            <RadioButton
                 android:id="@+id/q10_c2"
-                android:text="@string/answer_2"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_2" />
+
+            <RadioButton
                 android:id="@+id/q10_c1"
-                android:text="@string/answer_1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_1" />
         </RadioGroup>
 
     </LinearLayout>
@@ -462,41 +531,48 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_11"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <RadioGroup
             android:id="@+id/choice_group_11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/q11_c5"
-                android:text="@string/answer_5"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_5" />
+
+            <RadioButton
                 android:id="@+id/q11_c4"
-                android:text="@string/answer_4"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_4" />
+
+            <RadioButton
                 android:id="@+id/q11_c3"
-                android:text="@string/answer_3"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_3" />
+
+            <RadioButton
                 android:id="@+id/q11_c2"
-                android:text="@string/answer_2"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_2" />
+
+            <RadioButton
                 android:id="@+id/q11_c1"
-                android:text="@string/answer_1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_1" />
         </RadioGroup>
 
     </LinearLayout>
@@ -507,41 +583,48 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_12"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <RadioGroup
             android:id="@+id/choice_group_12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/q12_c5"
-                android:text="@string/answer_5"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_5" />
+
+            <RadioButton
                 android:id="@+id/q12_c4"
-                android:text="@string/answer_4"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_4" />
+
+            <RadioButton
                 android:id="@+id/q12_c3"
-                android:text="@string/answer_3"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_3" />
+
+            <RadioButton
                 android:id="@+id/q12_c2"
-                android:text="@string/answer_2"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_2" />
+
+            <RadioButton
                 android:id="@+id/q12_c1"
-                android:text="@string/answer_1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_1" />
         </RadioGroup>
 
     </LinearLayout>
@@ -552,41 +635,48 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_13"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <RadioGroup
             android:id="@+id/choice_group_13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/q13_c5"
-                android:text="@string/answer_5"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_5" />
+
+            <RadioButton
                 android:id="@+id/q13_c4"
-                android:text="@string/answer_4"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_4" />
+
+            <RadioButton
                 android:id="@+id/q13_c3"
-                android:text="@string/answer_3"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_3" />
+
+            <RadioButton
                 android:id="@+id/q13_c2"
-                android:text="@string/answer_2"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_2" />
+
+            <RadioButton
                 android:id="@+id/q13_c1"
-                android:text="@string/answer_1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_1" />
         </RadioGroup>
 
     </LinearLayout>
@@ -597,41 +687,48 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_14"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <RadioGroup
             android:id="@+id/choice_group_14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/q14_c5"
-                android:text="@string/answer_5"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_5" />
+
+            <RadioButton
                 android:id="@+id/q14_c4"
-                android:text="@string/answer_4"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_4" />
+
+            <RadioButton
                 android:id="@+id/q14_c3"
-                android:text="@string/answer_3"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_3" />
+
+            <RadioButton
                 android:id="@+id/q14_c2"
-                android:text="@string/answer_2"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_2" />
+
+            <RadioButton
                 android:id="@+id/q14_c1"
-                android:text="@string/answer_1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_1" />
         </RadioGroup>
 
     </LinearLayout>
@@ -642,41 +739,48 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_15"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <RadioGroup
             android:id="@+id/choice_group_15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/q15_c5"
-                android:text="@string/answer_5"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_5" />
+
+            <RadioButton
                 android:id="@+id/q15_c4"
-                android:text="@string/answer_4"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_4" />
+
+            <RadioButton
                 android:id="@+id/q15_c3"
-                android:text="@string/answer_3"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_3" />
+
+            <RadioButton
                 android:id="@+id/q15_c2"
-                android:text="@string/answer_2"/>
-            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/answer_2" />
+
+            <RadioButton
                 android:id="@+id/q15_c1"
-                android:text="@string/answer_1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_1" />
         </RadioGroup>
 
     </LinearLayout>
@@ -687,17 +791,19 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_16"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <EditText
             android:id="@+id/answer_16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Please write your answer"/>
+            android:hint="Please write your answer" />
 
     </LinearLayout>
 
@@ -707,17 +813,19 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_17"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <EditText
             android:id="@+id/answer_17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Please write your answer"/>
+            android:hint="Please write your answer" />
 
     </LinearLayout>
 
@@ -727,17 +835,19 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_18"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <EditText
             android:id="@+id/answer_18"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Please write your answer"/>
+            android:hint="Please write your answer" />
 
     </LinearLayout>
 
@@ -747,17 +857,19 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_19"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <EditText
             android:id="@+id/answer_19"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Please write your answer"/>
+            android:hint="Please write your answer" />
 
     </LinearLayout>
 
@@ -767,17 +879,19 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_20"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <EditText
             android:id="@+id/answer_20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Please write your answer"/>
+            android:hint="Please write your answer" />
 
     </LinearLayout>
 
@@ -787,17 +901,19 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/question_21"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
+
         <EditText
             android:id="@+id/answer_21"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Please write your answer"/>
+            android:hint="Please write your answer" />
 
     </LinearLayout>
 
@@ -805,6 +921,6 @@
         android:id="@+id/submit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SUBMIT"/>
+        android:text="SUBMIT" />
 
 </LinearLayout>

@@ -47,4 +47,8 @@
     <string name="answer_5">Most of the time</string>
     <string name="answer_6">Please write your answer here</string>
 
+    <string name="daily_question_1">Write the happiest moment you have today.</string>
+    <string name="daily_question_2">Write down one of the happiest moments you\'ve had this week.</string>
+    <string name="daily_question_3">Write one of the happiest moments you\'ve ever had in your life.</string>
+
 </resources>

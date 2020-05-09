@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -30,7 +31,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+    implements NavigationView.OnNavigationItemSelectedListener {
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     User user = User.getInstance();
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getUid());
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                    .setAction("Action", null).show();
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -107,18 +109,47 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_food) {
             view.setText("food");
         } else if (id == R.id.nav_day_test) {
-            view.setText("daily test");
+            view.setVisibility(View.GONE);
+            if (true) { //TODO: condition düzeltilecek
+                DailyFragment dailyFragment = new DailyFragment();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.your_placeholder, dailyFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            } else {
+                LayoutInflater inflater = (LayoutInflater)
+                    getSystemService(LAYOUT_INFLATER_SERVICE);
+                View popupView = inflater.inflate(R.layout.popup_window, null);
+                TextView t = popupView.findViewById(R.id.popup_text);
+                t.setText("There's no available test,yet!");
+                // create the popup window
+                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+                boolean focusable = true; // lets taps outside the popup also dismiss it
+                final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+
+                // show the popup window
+                // which view you pass in doesn't matter, it is only used for the window tolken
+                popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+                // dismiss the popup window when touched
+                popupView.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        popupWindow.dismiss();
+                        return true;
+                    }
+                });
+            }
         } else if (id == R.id.nav_week_test) {
             view.setVisibility(View.GONE);
-            if(user.getTestCounter() / 7 >= user.getWeekCounter()) {
+            if (user.getTestCounter() / 7 >= user.getWeekCounter()) {
                 WeeklyFragment weeklyFragment = new WeeklyFragment();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.your_placeholder, weeklyFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
-
             } else {
-                Log.w("ELSE\n","ELSE");
                 LayoutInflater inflater = (LayoutInflater)
                     getSystemService(LAYOUT_INFLATER_SERVICE);
                 View popupView = inflater.inflate(R.layout.popup_window, null);
@@ -160,7 +191,7 @@ public class MainActivity extends AppCompatActivity
             FirebaseAuth.getInstance().signOut();
             user = null;
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-            startActivityForResult(intent,0);
+            startActivityForResult(intent, 0);
         } else if (id == R.id.nav_quit) {
             ActivityCompat.finishAffinity(MainActivity.this);
         }

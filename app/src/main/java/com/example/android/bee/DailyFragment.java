@@ -11,36 +11,24 @@ import android.view.ViewGroup;
 
 import me.mvdw.recyclerviewmergeadapter.adapter.RecyclerViewMergeAdapter;
 
-public class ProgressFragment extends Fragment {
+public class DailyFragment extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                            Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.progress_fragment, container, false);
+    View view = inflater.inflate(R.layout.daily_fragment, container, false);
 
-    /*RecyclerView recyclerView = view.findViewById(R.id.questions_list);
-
+    RecyclerView recyclerView = view.findViewById(R.id.questions_list_daily);
     RecyclerViewMergeAdapter mergeAdapter = new RecyclerViewMergeAdapter();
-
-    ListAdapter listAdapter = new ListAdapter();
-    //ListAdapterDaily listAdapter2 = new ListAdapterDaily();
-    //ListAdapterButton listAdapterButton = new ListAdapterButton();
-
+    ListAdapterDaily listAdapter = new ListAdapterDaily();
     mergeAdapter.addAdapter(listAdapter);
-    //mergeAdapter.addAdapter(listAdapter2);
-    //mergeAdapter.addAdapter(listAdapterButton);
-
     recyclerView.setAdapter(mergeAdapter);
-
     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
     recyclerView.setLayoutManager(layoutManager);
-
-  */
     return view;
   }
 
   @Override
   public void onDestroy() {
     super.onDestroy();
-
   }
 }
