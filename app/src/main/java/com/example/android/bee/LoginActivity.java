@@ -144,7 +144,7 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
 
   public void onLoginSuccess() {
     _loginButton.setEnabled(true);
-
+    user.setName("22222222");
     sm.syncronize();
     //TODO: signupdan sonra buraya bak
     Intent intent = new Intent(getApplicationContext(), MainActivity.class);

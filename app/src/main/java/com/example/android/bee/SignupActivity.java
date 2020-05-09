@@ -34,7 +34,7 @@ public class SignupActivity extends AppCompatActivity implements Serializable, O
 
   private FirebaseAuth mAuth;
   private ServerManager sm;
-  private User user;
+  User user;
   private DatabaseReference mDatabase;
 
   @BindView(R.id.input_name) EditText _nameText;
@@ -145,7 +145,7 @@ public class SignupActivity extends AppCompatActivity implements Serializable, O
     _signupButton.setEnabled(true);
     setResult(RESULT_OK, null);
 
-    //Initialize the user with given informations
+    //Initialize the user with given information
     user.setName(_nameText.getText().toString());
     user.setUserID(_emailText.getText().toString());
     user.setAge(Integer.parseInt(_ageText.getText().toString()));

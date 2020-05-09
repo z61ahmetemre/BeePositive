@@ -22,9 +22,11 @@ public class User {
   private String notes;     //in profile users can store their own notes
   private int testCounter;  //to know how many test is solved
   private String regisrationDate;
+  private int weekCounter;
+  private String updater = "NULL";
 
 
-  public User() {
+  private User() {
     happinessHistory = new ArrayList<Double>();
     happinessHistory.add(-1.0);
   }
@@ -34,6 +36,18 @@ public class User {
       instance = new User();
     return instance;
   }
+
+  public String getUpdater() {
+    return updater;
+  }
+
+  public void setUpdater(String updater) {
+    this.updater = updater;
+  }
+
+  public int getWeekCounter() { return weekCounter;}
+
+  public void setWeekCounter( int i ) { weekCounter = i;}
 
   public String getRegisrationDate() { return regisrationDate;}
 

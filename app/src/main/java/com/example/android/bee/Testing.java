@@ -3,13 +3,15 @@ package com.example.android.bee;
 public class Testing {
   ServerManager sm;
   Test daily;
-  Test weekly;
+  Test weekly[];
   static int dayCounter; //TO DO: Buna bir daha bak.
   User user;
 
   //Construction a bak
   Testing() {
-
+    weekly = new Test[4];
+    sm = ServerManager.getInstance();
+    user = User.getInstance();
   }
 
   public void setAnswer( int testType, int dayCounter) {
