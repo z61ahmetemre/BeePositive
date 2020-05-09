@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -27,15 +25,10 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
-    FirebaseAuth mAuth = FirebaseAuth.getInstance();
     User user = User.getInstance();
-    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getUid());
-    ServerManager sm = ServerManager.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +136,7 @@ public class MainActivity extends AppCompatActivity
             }
         } else if (id == R.id.nav_week_test) {
             view.setVisibility(View.GONE);
-            if (user.getTestCounter() / 7 >= user.getWeekCounter()) {
+            if (user.getTestCounter() / 7 >= user.getWeekCounter()) {//TODO: condition düzeltilecek
                 WeeklyFragment weeklyFragment = new WeeklyFragment();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.your_placeholder, weeklyFragment);
@@ -175,9 +168,7 @@ public class MainActivity extends AppCompatActivity
                 });
             }
 
-        } else if (id == R.id.nav_progress) {
-            //view.setText("progress");
-
+        } else if (id == R.id.nav_progress) {//TODO:
             ProgressFragment progressFragment = new ProgressFragment();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.your_placeholder, progressFragment);
@@ -187,7 +178,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             view.setText("settings");
         } else if (id == R.id.nav_logout) {
-            //view.setText("LOGOUT");
             FirebaseAuth.getInstance().signOut();
             user = null;
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
@@ -195,7 +185,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_quit) {
             ActivityCompat.finishAffinity(MainActivity.this);
         }
-
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

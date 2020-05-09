@@ -2,151 +2,156 @@ package com.example.android.bee;
 
 import java.util.List;
 
+/**
+ * This class exist in order to handle data reading from firebase database.
+ */
 public class UserHolder {
-  private String name;
-  private String userID;
-  private int sex;
-  private double happinessPercentage;
-  private int age;
-  private int dopamine;
-  private int serotonin;
-  private int endorphins;
-  private int oxytocin;
-  private String password;
-  private boolean isRegistered;
-  private List<Double> happinessHistory;
-  private String notes;
-  private int testCounter;
-  private String regisrationDate;
-  private int weekCounter;
+    private String name;
+    private String userID;
+    private int sex;
+    private double happinessPercentage;
+    private int age;
+    private int dopamine;
+    private int serotonin;
+    private int endorphins;
+    private int oxytocin;
+    private String password;
+    private boolean isRegistered;
+    private List<Double> happinessHistory;
+    private String notes;
+    private int testCounter;
+    private String regisrationDate;
+    private int weekCounter;
 
-  public UserHolder() { }
-  public String getName() {
-    return name;
-  }
+    public UserHolder() {
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public String getUserID() {
-    return userID;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public void setUserID(String userID) {
-    this.userID = userID;
-  }
+    public String getUserID() {
+        return userID;
+    }
 
-  public int getSex() {
-    return sex;
-  }
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
 
-  public void setSex(int sex) {
-    this.sex = sex;
-  }
+    public int getSex() {
+        return sex;
+    }
 
-  public double getHappinessPercentage() {
-    return happinessPercentage;
-  }
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
 
-  public void setHappinessPercentage(double happinessPercentage) {
-    this.happinessPercentage = happinessPercentage;
-  }
+    public double getHappinessPercentage() {
+        return happinessPercentage;
+    }
 
-  public int getAge() {
-    return age;
-  }
+    public void setHappinessPercentage(double happinessPercentage) {
+        this.happinessPercentage = happinessPercentage;
+    }
 
-  public void setAge(int age) {
-    this.age = age;
-  }
+    public int getAge() {
+        return age;
+    }
 
-  public int getDopamine() {
-    return dopamine;
-  }
+    public void setAge(int age) {
+        this.age = age;
+    }
 
-  public void setDopamine(int dopamine) {
-    this.dopamine = dopamine;
-  }
+    public int getDopamine() {
+        return dopamine;
+    }
 
-  public int getSerotonin() {
-    return serotonin;
-  }
+    public void setDopamine(int dopamine) {
+        this.dopamine = dopamine;
+    }
 
-  public void setSerotonin(int serotonin) {
-    this.serotonin = serotonin;
-  }
+    public int getSerotonin() {
+        return serotonin;
+    }
 
-  public int getEndorphins() {
-    return endorphins;
-  }
+    public void setSerotonin(int serotonin) {
+        this.serotonin = serotonin;
+    }
 
-  public void setEndorphins(int endorphins) {
-    this.endorphins = endorphins;
-  }
+    public int getEndorphins() {
+        return endorphins;
+    }
 
-  public int getOxytocin() {
-    return oxytocin;
-  }
+    public void setEndorphins(int endorphins) {
+        this.endorphins = endorphins;
+    }
 
-  public void setOxytocin(int oxytocin) {
-    this.oxytocin = oxytocin;
-  }
+    public int getOxytocin() {
+        return oxytocin;
+    }
 
-  public String getPassword() {
-    return password;
-  }
+    public void setOxytocin(int oxytocin) {
+        this.oxytocin = oxytocin;
+    }
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
+    public String getPassword() {
+        return password;
+    }
 
-  public boolean isRegistered() {
-    return isRegistered;
-  }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-  public void setRegistered(boolean registered) {
-    isRegistered = registered;
-  }
+    public boolean isRegistered() {
+        return isRegistered;
+    }
 
-  public List<Double> getHappinessHistory() {
-    return happinessHistory;
-  }
+    public void setRegistered(boolean registered) {
+        isRegistered = registered;
+    }
 
-  public void setHappinessHistory(List<Double> happinessHistory) {
-    this.happinessHistory = happinessHistory;
-  }
+    public List<Double> getHappinessHistory() {
+        return happinessHistory;
+    }
 
-  public String getNotes() {
-    return notes;
-  }
+    public void setHappinessHistory(List<Double> happinessHistory) {
+        this.happinessHistory = happinessHistory;
+    }
 
-  public void setNotes(String notes) {
-    this.notes = notes;
-  }
+    public String getNotes() {
+        return notes;
+    }
 
-  public int getTestCounter() {
-    return testCounter;
-  }
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
 
-  public void setTestCounter(int testCounter) {
-    this.testCounter = testCounter;
-  }
+    public int getTestCounter() {
+        return testCounter;
+    }
 
-  public String getRegisrationDate() {
-    return regisrationDate;
-  }
+    public void setTestCounter(int testCounter) {
+        this.testCounter = testCounter;
+    }
 
-  public void setRegisrationDate(String regisrationDate) {
-    this.regisrationDate = regisrationDate;
-  }
+    public String getRegisrationDate() {
+        return regisrationDate;
+    }
 
-  public int getWeekCounter() {
-    return weekCounter;
-  }
+    public void setRegisrationDate(String regisrationDate) {
+        this.regisrationDate = regisrationDate;
+    }
 
-  public void setWeekCounter(int weekCounter) {
-    this.weekCounter = weekCounter;
-  }
+    public int getWeekCounter() {
+        return weekCounter;
+    }
+
+    public void setWeekCounter(int weekCounter) {
+        this.weekCounter = weekCounter;
+    }
 
 }

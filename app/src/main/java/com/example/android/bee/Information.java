@@ -1,12 +1,12 @@
 package com.example.android.bee;
 
 public class Information {
-  private int[][] information;
+    private int[][] information;
 
-  public Information() {
-  }
+    public Information() {
+    }
 
-  public int[][] getInformation() {
-    return information;
-  }
+    public int[][] getInformation() {
+        return information;
+    }
 }

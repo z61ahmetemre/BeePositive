@@ -12,22 +12,22 @@ import android.view.ViewGroup;
 import me.mvdw.recyclerviewmergeadapter.adapter.RecyclerViewMergeAdapter;
 
 public class WeeklyFragment extends Fragment {
-  @Override
-  public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
-                           Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.weekly_activity, container, false);
-    RecyclerView recyclerView = view.findViewById(R.id.questions_list);
-    RecyclerViewMergeAdapter mergeAdapter = new RecyclerViewMergeAdapter();
-    ListAdapter listAdapter = new ListAdapter();
-    mergeAdapter.addAdapter(listAdapter);
-    recyclerView.setAdapter(mergeAdapter);
-    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-    recyclerView.setLayoutManager(layoutManager);
-    return view;
-  }
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.weekly_activity, container, false);
+        RecyclerView recyclerView = view.findViewById(R.id.questions_list);
+        RecyclerViewMergeAdapter mergeAdapter = new RecyclerViewMergeAdapter();
+        ListAdapter listAdapter = new ListAdapter();
+        mergeAdapter.addAdapter(listAdapter);
+        recyclerView.setAdapter(mergeAdapter);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        return view;
+    }
 
-  @Override
-  public void onDestroy() {
-    super.onDestroy();
-  }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 }

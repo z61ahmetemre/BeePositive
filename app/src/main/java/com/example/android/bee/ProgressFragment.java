@@ -11,11 +11,11 @@ import android.view.ViewGroup;
 
 import me.mvdw.recyclerviewmergeadapter.adapter.RecyclerViewMergeAdapter;
 
-public class ProgressFragment extends Fragment {
-  @Override
-  public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
-                           Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.progress_fragment, container, false);
+public class ProgressFragment extends Fragment { //TODO:
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.progress_fragment, container, false);
 
     /*RecyclerView recyclerView = view.findViewById(R.id.questions_list);
 
@@ -35,12 +35,12 @@ public class ProgressFragment extends Fragment {
     recyclerView.setLayoutManager(layoutManager);
 
   */
-    return view;
-  }
+        return view;
+    }
 
-  @Override
-  public void onDestroy() {
-    super.onDestroy();
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
 
-  }
+    }
 }

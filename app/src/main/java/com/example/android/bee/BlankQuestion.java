@@ -1,23 +1,23 @@
 package com.example.android.bee;
 
 public class BlankQuestion extends Questions {
-  String answer;
+    String answer;
 
-  BlankQuestion() {
-    answer = null;
-  }
+    BlankQuestion() {
+        answer = null;
+    }
 
-  /**
-   * @return Desired answer.
-   */
-  public String getAnswer() {
-    return answer;
-  }
+    /**
+     * @return Desired answer.
+     */
+    public String getAnswer() {
+        return answer;
+    }
 
-  /**
-   * @param theAnswer The users' answer which will be stored.
-   */
-  public void setAnswer(String theAnswer) {
-    answer = theAnswer;
-  }
+    /**
+     * @param theAnswer The users' answer which will be stored.
+     */
+    public void setAnswer(String theAnswer) {
+        answer = theAnswer;
+    }
 }
