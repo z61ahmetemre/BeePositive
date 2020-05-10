@@ -17,24 +17,13 @@ public class ProgressFragment extends Fragment { //TODO:
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.progress_fragment, container, false);
 
-    /*RecyclerView recyclerView = view.findViewById(R.id.questions_list);
-
-    RecyclerViewMergeAdapter mergeAdapter = new RecyclerViewMergeAdapter();
-
-    ListAdapter listAdapter = new ListAdapter();
-    //ListAdapterDaily listAdapter2 = new ListAdapterDaily();
-    //ListAdapterButton listAdapterButton = new ListAdapterButton();
-
-    mergeAdapter.addAdapter(listAdapter);
-    //mergeAdapter.addAdapter(listAdapter2);
-    //mergeAdapter.addAdapter(listAdapterButton);
-
-    recyclerView.setAdapter(mergeAdapter);
-
-    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-    recyclerView.setLayoutManager(layoutManager);
-
-  */
+        RecyclerView recyclerView = view.findViewById(R.id.progress_recycler_view);
+        RecyclerViewMergeAdapter mergeAdapter = new RecyclerViewMergeAdapter();
+        ListAdapterProgress listAdapterProgress = new ListAdapterProgress();
+        mergeAdapter.addAdapter(listAdapterProgress);
+        recyclerView.setAdapter(mergeAdapter);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
         return view;
     }
 

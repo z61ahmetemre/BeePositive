@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/aaaa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TEXTTTTTTTTT"
+            tools:layout_editor_absoluteX="122dp"
+            tools:layout_editor_absoluteY="122dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:paddingBottom="5dp"
+            android:src="@drawable/avatar" />
+
+        <Button
+            android:id="@+id/show_graphics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show graphıcs" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/aaaa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TEXTTTTTTTTT"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="122dp" />
-
-    <ImageView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/progress_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:paddingBottom="5dp"
-        android:src="@drawable/avatar"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="193dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical" />
 </android.support.constraint.ConstraintLayout>
