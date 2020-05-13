@@ -51,4 +51,7 @@
     <string name="daily_question_2">Write down one of the happiest moments you\'ve had this week.</string>
     <string name="daily_question_3">Write one of the happiest moments you\'ve ever had in your life.</string>
 
+    <string name="user_name_nav">%s </string>
+    <string name="user_mail_nav">%s </string>
+
 </resources>

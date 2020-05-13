@@ -3,6 +3,7 @@ package com.example.android.bee;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -142,7 +143,6 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
         sm.syncronize();
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivityForResult(intent, 0);
-        //finish();
     }
 
     public void onLoginFailed() {

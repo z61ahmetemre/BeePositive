@@ -1,6 +1,7 @@
 package com.example.android.bee;
 
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;

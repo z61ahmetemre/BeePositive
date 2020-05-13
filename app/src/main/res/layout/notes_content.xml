@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="To edit please click the button!"
+            android:textStyle="italic"
+            android:textSize="16sp"
+            android:layout_weight="10"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"/>
+        <ImageView
+            android:id="@+id/edit_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="2"
+            android:layout_gravity="right"
+            android:src="@drawable/edit_icon" />
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/notes_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="deddedededededede"
+            android:paddingTop="8dp"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/notes_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textMultiLine"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="save"
+        android:visibility="invisible" />
+</LinearLayout>

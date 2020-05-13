@@ -25,16 +25,24 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
     User user = User.getInstance();
+    Toolbar toolbar;
+    FragmentManager fragmentManager = getFragmentManager();
+    FragmentTransaction fragmentTransaction;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        mDatabase.child("users").child(mAuth.getUid()).child("updater").setValue("+");
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +67,14 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            //super.onBackPressed();
+            toolbar.setTitle("My Profile");
+            /*NotesFragment notesFragment = new NotesFragment();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.your_placeholder, notesFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();*/
+
         }
     }
 
@@ -67,6 +82,12 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        TextView tw = headerView.findViewById(R.id.user_name);
+        tw.setText(user.getName());
+        tw = headerView.findViewById(R.id.user_email);
+        tw.setText(user.getUserID());
         return true;
     }
 
@@ -89,21 +110,29 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction;
         int id = item.getItemId();
         TextView view = findViewById(R.id.HELLO);
         if (id == R.id.nav_my_profile) {
+            toolbar.setTitle("My Profile");
             view.setText("profile");
         } else if (id == R.id.nav_notes) {
-            view.setText("NOTES");
+            toolbar.setTitle("Notes");
+            view.setVisibility(View.GONE);
+            NotesFragment notesFragment = new NotesFragment();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.your_placeholder, notesFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_activities) {
+            toolbar.setTitle("Activities");
             view.setText("Activities");
         } else if (id == R.id.nav_food) {
+            toolbar.setTitle("Foods");
             view.setText("food");
         } else if (id == R.id.nav_day_test) {
             view.setVisibility(View.GONE);
             if (true) { //TODO: condition düzeltilecek
+                toolbar.setTitle("Daily Test");
                 DailyFragment dailyFragment = new DailyFragment();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.your_placeholder, dailyFragment);
@@ -137,6 +166,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_week_test) {
             view.setVisibility(View.GONE);
             if (user.getTestCounter() / 7 >= user.getWeekCounter()) {//TODO: condition düzeltilecek
+                toolbar.setTitle("Weekly Test");
                 WeeklyFragment weeklyFragment = new WeeklyFragment();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.your_placeholder, weeklyFragment);
@@ -169,6 +199,7 @@ public class MainActivity extends AppCompatActivity
             }
 
         } else if (id == R.id.nav_progress) {//TODO:
+            toolbar.setTitle("Progress");
             ProgressFragment progressFragment = new ProgressFragment();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.your_placeholder, progressFragment);
@@ -176,6 +207,7 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_settings) {
+            toolbar.setTitle("Settings");
             view.setText("settings");
         } else if (id == R.id.nav_logout) {
             FirebaseAuth.getInstance().signOut();
