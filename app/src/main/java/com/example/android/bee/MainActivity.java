@@ -59,6 +59,11 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        ProfileFragment profileFragment = new ProfileFragment();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.your_placeholder, profileFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
     @Override
@@ -69,11 +74,11 @@ public class MainActivity extends AppCompatActivity
         } else {
             //super.onBackPressed();
             toolbar.setTitle("My Profile");
-            /*NotesFragment notesFragment = new NotesFragment();
+            ProfileFragment profileFragment = new ProfileFragment();
             fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.your_placeholder, notesFragment);
+            fragmentTransaction.replace(R.id.your_placeholder, profileFragment);
             fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();*/
+            fragmentTransaction.commit();
 
         }
     }

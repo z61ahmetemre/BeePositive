@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/profile_bk"
     android:fitsSystemWindows="true"
+    android:padding="8dp"
     tools:context="com.example.android.bee.DailyFragment">
 
     <android.support.design.widget.AppBarLayout
