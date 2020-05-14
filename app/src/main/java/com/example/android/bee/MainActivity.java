@@ -114,7 +114,12 @@ public class MainActivity extends AppCompatActivity
         TextView view = findViewById(R.id.HELLO);
         if (id == R.id.nav_my_profile) {
             toolbar.setTitle("My Profile");
-            view.setText("profile");
+            view.setVisibility(View.GONE);
+            ProfileFragment profileFragment = new ProfileFragment();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.your_placeholder, profileFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_notes) {
             toolbar.setTitle("Notes");
             view.setVisibility(View.GONE);

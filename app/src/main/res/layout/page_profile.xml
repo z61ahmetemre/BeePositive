@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/profile_bk"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.android.bee.DailyFragment">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/blackTextColor"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleTextAppearance="@style/TransparentText"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/profile_bk"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/avatar_unisex" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Songul"
+                    android:textColor="@color/blackTextColor"
+                    android:textSize="28dp"
+                    android:textStyle="italic|bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp">
+
+                    <TextView
+                        android:id="@+id/quoteView"
+                        style="@style/profileDetailsMiniText"
+                        android:gravity="center_horizontal"
+                        android:text="Her gün güzel geçmeyebilir ama her günün içinde mutlaka bir güzellik vard?r."
+                        android:textColor="@color/blackTextColor"
+                        android:textStyle="italic" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp">
+                    <!--            <ImageView-->
+                    <!--                android:id="@+id/dobImageView"-->
+                    <!--                android:src="@drawable/ic_dob"-->
+                    <!--                style="@style/profileDetailsImage" />-->
+                    <!--                    <ImageView-->
+                    <!--                        android:id="@+id/editIcon"-->
+                    <!--                        android:src="@drawable/icons8_paper_50_2"-->
+                    <!--                        android:layout_width="16sp"-->
+                    <!--                        android:layout_height="16sp"-->
+                    <!--                        style="@style/profileDetailsImage" />-->
+
+                    <TextView
+                        android:id="@+id/ageView"
+                        style="@style/profileDetailsTextMain"
+
+                        android:text="Age: " />
+
+                    <TextView
+                        style="@style/profileDetailsMiniText"
+                        android:layout_toRightOf="@id/ageView"
+                        android:text="23" />
+
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/profileDetailsLayout">
+
+                    <!--                    <ImageView-->
+                    <!--                        android:id="@+id/editIcon2"-->
+                    <!--                        android:src="@drawable/icons8_paper_50_2"-->
+                    <!--                        android:layout_width="16sp"-->
+                    <!--                        android:layout_height="16sp"-->
+                    <!--                        style="@style/profileDetailsImage" />-->
+
+                    <TextView
+                        android:id="@+id/genderView"
+                        style="@style/profileDetailsTextMain"
+
+                        android:text="Gender: " />
+
+                    <TextView
+                        style="@style/profileDetailsMiniText"
+                        android:layout_toRightOf="@id/genderView"
+                        android:text="Female" />
+
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/profileDetailsLayout">
+                    <!--            <ImageView-->
+                    <!--                android:id="@+id/emailImageView"-->
+                    <!--                android:src="@drawable/ic_email"-->
+                    <!--                style="@style/profileDetailsImage" />-->
+
+                    <!--                    <ImageView-->
+                    <!--                        android:id="@+id/editIcon4"-->
+                    <!--                        android:src="@drawable/icons8_paper_50_2"-->
+                    <!--                        android:layout_width="16sp"-->
+                    <!--                        android:layout_height="16sp"-->
+                    <!--                        style="@style/profileDetailsImage" />-->
+
+                    <TextView
+                        android:id="@+id/emailView"
+                        style="@style/profileDetailsTextMain"
+
+                        android:text="Email: " />
+
+                    <TextView
+                        style="@style/profileDetailsMiniText"
+                        android:layout_toRightOf="@id/emailView"
+                        android:text="songul@gmail.com" />
+
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/profileDetailsLayout">
+
+                    <!--                    <ImageView-->
+                    <!--                        android:id="@+id/editIcon5"-->
+                    <!--                        android:src="@drawable/icons8_paper_50_2"-->
+                    <!--                        android:layout_width="16sp"-->
+                    <!--                        android:layout_height="16sp"-->
+                    <!--                        style="@style/profileDetailsImage" />-->
+
+                    <TextView
+                        android:id="@+id/joinView"
+                        style="@style/profileDetailsTextMain"
+
+                        android:text="Date Joined: " />
+
+                    <TextView
+                        style="@style/profileDetailsMiniText"
+                        android:layout_toRightOf="@id/joinView"
+                        android:text="April, 2020 " />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:layout_marginLeft="20dp"-->
+            <!--                android:layout_marginRight="20dp">-->
+
+            <!--                -->
+
+            <!--                &lt;!&ndash;        <View style="@style/profileDetailsView" />&ndash;&gt;-->
+
+            <!--            </LinearLayout>-->
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
+

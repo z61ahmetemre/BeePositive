@@ -7,4 +7,21 @@
     <color name="colorPrimarySplash">#ffaa66cc</color>
     <color name="colorPrimaryDarkSplash">#8147A0</color>
     <color name="colorAccentSplash">#D81B60</color>
+
+    <!--colors for profile-->
+
+
+    <color name="profilePrimaryDark">#30FCFF</color>
+
+    <color name="profileAccentColor">#F7F7F7</color>
+
+    <color name="whiteTextColor">#fff</color>
+
+    <color name="profileBackground">#fff</color>
+
+    <color name="blackTextColor">#000</color>
+
+    <color name="profileEditTextColor">#707070</color>
 </resources>
+
+
