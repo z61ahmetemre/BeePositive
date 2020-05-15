@@ -6,6 +6,7 @@ import java.util.List;
 public class Test {
     List<Questions> questions;
     List<BlankQuestion> dailyQuestions;
+    String date;
 
     /**
      * if type 0: daily test
@@ -25,6 +26,7 @@ public class Test {
             for (int i = 15; i < 21; i++)
                 questions.add(i, new BlankQuestion());
         }
+        date = null;
     }
 
     public List<BlankQuestion> getDailyQuestions() {

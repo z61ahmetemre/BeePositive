@@ -14,6 +14,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class ListAdapterDaily extends RecyclerView.Adapter {
     View view;
@@ -43,6 +46,9 @@ public class ListAdapterDaily extends RecyclerView.Adapter {
                                           test.setDailyAnswer(0, String.valueOf(a1.getText()));
                                           test.setDailyAnswer(1, String.valueOf(a2.getText()));
                                           test.setDailyAnswer(2, String.valueOf(a3.getText()));
+                                          SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                                          String date = sdf.format(new Date());
+                                          test.date = date;
 
                                           user.setTestCounter(user.getTestCounter() + 1);
                                           mDatabase.child("users").child(mAuth.getUid()).child("testCounter").setValue(user.getTestCounter());
