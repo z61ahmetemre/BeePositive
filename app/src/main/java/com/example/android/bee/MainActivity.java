@@ -135,10 +135,20 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
         } else if (id == R.id.nav_activities) {
             toolbar.setTitle("Activities");
-            view.setText("Activities");
+            view.setVisibility(View.GONE);
+            ActivitiesFragment activitiesFragment = new ActivitiesFragment();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.your_placeholder, activitiesFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_food) {
             toolbar.setTitle("Foods");
-            view.setText("food");
+            view.setVisibility(View.GONE);
+            FoodFragment foodFragment = new FoodFragment();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.your_placeholder, foodFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_day_test) {
             view.setVisibility(View.GONE);
             if (true) { //TODO: condition düzeltilecek

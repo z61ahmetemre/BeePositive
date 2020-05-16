@@ -54,4 +54,87 @@
     <string name="user_name_nav">%s </string>
     <string name="user_mail_nav">%s </string>
 
+
+    <string name="activity">Activities</string>
+    <string name="activities_1">Cooking</string>
+    <string name="activities_2">Eating</string>
+    <string name="activities_3">Painting</string>
+    <string name="activities_4">Keep A Diary</string>
+    <string name="activities_5">Take a Rest</string>
+    <string name="activities_6">Take a Vacation</string>
+    <string name="activities_7">Read a Book</string>
+    <string name="activities_8">Sunbathe</string>
+    <string name="activities_9">Develop a Hobby</string>
+    <string name="activities_10">Listen to Music</string>
+    <string name="activities_11">Personal Care</string>
+    <string name="activities_12">Volunteer a Work</string>
+    <string name="activities_13">Gardening</string>
+    <string name="activities_14">Watching Tv</string>
+    <string name="activities_15">Have a Massage</string>
+    <string name="activities_16">Meditation</string>
+    <string name="activities_17">Dancing</string>
+    <string name="activities_18">Sport</string>
+
+    <string name="food">Foods</string>
+    <string name="food_1">Fish</string>
+    <string name="food_2">White Meats</string>
+    <string name="food_3">Red Meats</string>
+    <string name="food_4">Vegetables</string>
+    <string name="food_5">Fruits</string>
+    <string name="food_6">Milk Products</string>
+    <string name="food_7">Honey</string>
+    <string name="food_8">Seeds</string>
+    <string name="food_9">Eggs</string>
+    <string name="food_10">Dried Nuts</string>
+    <string name="food_11">Fast Food</string>
+    <string name="food_12">Cacao</string>
+    <string name="food_13">Animal Fat</string>
+    <string name="food_14">Herbal Oil</string>
+    <string name="food_15">Organ Meats</string>
+    <string name="food_16">Coffee</string>
+    <string name="food_17">Tea</string>
+    <string name="food_18">Kebab</string>
+    <string name="food_19">Sweet</string>
+
+    <string name="points">Points</string>
+    <string name="fish">~455 Points</string>
+    <string name="white_meats">~430 Points</string>
+    <string name="milk_products">~415 Points</string>
+    <string name="red_meat">~425 Points</string>
+    <string name="honey">~485 Points</string>
+    <string name="egg">~425 Points</string>
+    <string name="organ_meats">~425 Points</string>
+    <string name="animal_fat">~345 Points</string>
+    <string name="seeds">~215 Points</string>
+    <string name="dried_nuts">~440 Points</string>
+    <string name="vegetables">~155 Points</string>
+    <string name="grains">~205 Points</string>
+    <string name="fruits">~365 Points</string>
+    <string name="cacao">~670 Points</string>
+    <string name="herbal_oil">~120 Points</string>
+    <string name="fast_food">~425 Points</string>
+    <string name="kebab">~425 Points</string>
+    <string name="coffee">~155 Points</string>
+    <string name="tea">~155 Points</string>
+    <string name="sweet">~650 Points</string>
+
+    <string name="eating">~700 Points</string>
+    <string name="painting">~400 Points</string>
+    <string name="diary">~650 Points</string>
+    <string name="read_book">~450 Points</string>
+    <string name="cooking">~750 Points</string>
+    <string name="hobby">~750 Points</string>
+    <string name="personal_care">~450 Points</string>
+    <string name="massage">~800 Points</string>
+    <string name="meditation">~800 Points</string>
+    <string name="sport">~900 Points</string>
+    <string name="dancing">~800 Points</string>
+    <string name="vacation">~850 Points</string>
+    <string name="gardening">~750 Points</string>
+    <string name="listen_music">~700 Points</string>
+    <string name="volunteer">~800 Points</string>
+    <string name="have_a_rest">~700 Points</string>
+    <string name="sunbathe">~750 Points</string>
+    <string name="tv">~180 Points</string>
+
 </resources>

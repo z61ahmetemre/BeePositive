@@ -8,6 +8,10 @@
     <color name="colorPrimaryDarkSplash">#8147A0</color>
     <color name="colorAccentSplash">#D81B60</color>
 
+    <color name="colorBack">#F1E5ED</color>
+    <color name="colorPoints">#C695B9</color>
+
+
     <!--colors for profile-->
 
 

@@ -51,7 +51,9 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
-            android:text="Logın"/>
+            android:text="Logın"
+            android:background="@drawable/btn_rounded"
+            android:textColor="@color/whiteTextColor"/>
 
         <TextView android:id="@+id/link_signup"
             android:layout_width="fill_parent"
