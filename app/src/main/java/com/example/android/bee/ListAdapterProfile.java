@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -20,13 +21,32 @@ public class ListAdapterProfile extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.page_profile, viewGroup, false);
+        view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.profile_page_content, viewGroup, false);
         return new ListViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         ((ListViewHolder) viewHolder).bindView(i);
+        TextView name   = view.findViewById(R.id.p_user_name);
+        TextView age    = view.findViewById(R.id.p_user_age);
+        TextView gender = view.findViewById(R.id.p_user_gender);
+        TextView mail   = view.findViewById(R.id.p_user_id);
+        TextView point  = view.findViewById(R.id.p_user_hap_point);
+        TextView date   = view.findViewById(R.id.p_user_reg_date);
+
+        name.setText(user.getName());
+        age.setText(user.getAge() + "");
+        if( user.getSex() == -1) {
+            gender.setText("Other");
+        } else if( user.getSex() == 0) {
+            gender.setText("Female");
+        } else if(user.getSex() == 1) {
+            gender.setText("Male");
+        }
+        mail.setText(user.getUserID());
+        point.setText(user.getHappinessPercentage() + "");
+        date.setText(user.getRegisrationDate());
 
     }
 

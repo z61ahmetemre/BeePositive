@@ -119,7 +119,6 @@ public class MainActivity extends AppCompatActivity
         TextView view = findViewById(R.id.HELLO);
         if (id == R.id.nav_my_profile) {
             toolbar.setTitle("My Profile");
-            view.setVisibility(View.GONE);
             ProfileFragment profileFragment = new ProfileFragment();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.your_placeholder, profileFragment);
@@ -127,7 +126,6 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
         } else if (id == R.id.nav_notes) {
             toolbar.setTitle("Notes");
-            view.setVisibility(View.GONE);
             NotesFragment notesFragment = new NotesFragment();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.your_placeholder, notesFragment);
@@ -135,7 +133,6 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
         } else if (id == R.id.nav_activities) {
             toolbar.setTitle("Activities");
-            view.setVisibility(View.GONE);
             ActivitiesFragment activitiesFragment = new ActivitiesFragment();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.your_placeholder, activitiesFragment);
@@ -143,15 +140,13 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
         } else if (id == R.id.nav_food) {
             toolbar.setTitle("Foods");
-            view.setVisibility(View.GONE);
             FoodFragment foodFragment = new FoodFragment();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.your_placeholder, foodFragment);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_day_test) {
-            view.setVisibility(View.GONE);
-            if (true) { //TODO: condition düzeltilecek
+            if (false) { //TODO: condition düzeltilecek
                 toolbar.setTitle("Daily Test");
                 DailyFragment dailyFragment = new DailyFragment();
                 fragmentTransaction = fragmentManager.beginTransaction();
@@ -184,7 +179,6 @@ public class MainActivity extends AppCompatActivity
                 });
             }
         } else if (id == R.id.nav_week_test) {
-            view.setVisibility(View.GONE);
             if (user.getTestCounter() / 7 >= user.getWeekCounter()) {//TODO: condition düzeltilecek
                 toolbar.setTitle("Weekly Test");
                 WeeklyFragment weeklyFragment = new WeeklyFragment();
@@ -228,7 +222,6 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_settings) {
             toolbar.setTitle("Settings");
-            view.setText("settings");
         } else if (id == R.id.nav_logout) {
             FirebaseAuth.getInstance().signOut();
             user = null;
