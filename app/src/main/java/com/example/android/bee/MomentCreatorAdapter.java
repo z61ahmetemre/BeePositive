@@ -22,6 +22,11 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
     User user = User.getInstance();
 
 
+    // overriding methods
+    //asjdhdsh
+    //kskdjfdk
+
+    
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
