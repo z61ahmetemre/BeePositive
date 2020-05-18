@@ -20,13 +20,9 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     User user = User.getInstance();
-
-
-    // overriding methods
-    //asjdhdsh
-    //kskdjfdk
-
     
+
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
