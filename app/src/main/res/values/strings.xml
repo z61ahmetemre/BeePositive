@@ -57,15 +57,15 @@
 
     <string name="activity">Activities</string>
     <string name="activities_1">Cooking</string>
-    <string name="activities_2">Eating</string>
+    <string name="activities_2">Eating/Drinking</string>
     <string name="activities_3">Painting</string>
-    <string name="activities_4">Keep A Diary</string>
-    <string name="activities_5">Take a Rest</string>
-    <string name="activities_6">Take a Vacation</string>
-    <string name="activities_7">Read a Book</string>
+    <string name="activities_4">Writing</string>
+    <string name="activities_5">Resting</string>
+    <string name="activities_6">Traveling</string>
+    <string name="activities_7">Reading</string>
     <string name="activities_8">Sunbathe</string>
     <string name="activities_9">Develop a Hobby</string>
-    <string name="activities_10">Listen to Music</string>
+    <string name="activities_10">Listening to Music</string>
     <string name="activities_11">Personal Care</string>
     <string name="activities_12">Volunteer a Work</string>
     <string name="activities_13">Gardening</string>
@@ -73,7 +73,7 @@
     <string name="activities_15">Have a Massage</string>
     <string name="activities_16">Meditation</string>
     <string name="activities_17">Dancing</string>
-    <string name="activities_18">Sport</string>
+    <string name="activities_18">Exercising</string>
 
     <string name="food">Foods</string>
     <string name="food_1">Fish</string>
