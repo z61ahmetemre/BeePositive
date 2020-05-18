@@ -222,6 +222,11 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_settings) {
             toolbar.setTitle("Settings");
+            SettingsFragment settingsFragment = new SettingsFragment();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.your_placeholder, settingsFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_logout) {
             FirebaseAuth.getInstance().signOut();
             user = null;
