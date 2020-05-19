@@ -21,7 +21,7 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     User user = User.getInstance();
     
-
+//adasdasdasdasdasdasdasdasd
 
     @NonNull
     @Override
