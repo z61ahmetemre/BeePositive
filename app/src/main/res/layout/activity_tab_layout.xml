@@ -1,92 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/emoji_question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </android.support.v7.widget.CardView>
-
-        <ImageView
-            android:id="@+id/emoji"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/completely_okay_3" />
-
-        <TextView
-            android:id="@+id/emoji_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="20dp"
-            android:text="comletely okay"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <SeekBar
-            android:id="@+id/seekBar"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:max="4"
-            android:paddingTop="5dp"
-            android:progress="2" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Really Terrible"
-                android:textAlignment="textStart" />
-
-            <TextView
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Super Awesome"
-                android:textAlignment="textEnd" />
-        </LinearLayout>
-
-
-    </LinearLayout>
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp">
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/ac_question"
@@ -96,7 +19,6 @@
             android:layout_marginBottom="30dp"
             android:background="@color/whiteTextColor"
             android:padding="8dp"
-            android:paddingTop="16dp"
             android:text="TextView"
             android:textAlignment="center"
             android:textSize="18sp"
@@ -108,11 +30,10 @@
             android:orientation="horizontal">
 
             <android.support.v7.widget.CardView
-                android:id="@+id/acd_work"
+                android:id="@+id/ac_work"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/whiteTextColor"
-                app:cardCornerRadius="10dp">
+                app:cardBackgroundColor="@color/whiteTextColor">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -120,12 +41,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/ac_work"
+                        android:id="@+id/work_button"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:srcCompat="@drawable/a_work" />
 
                     <TextView
+                        android:id="@+id/textView4"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="work"
@@ -135,11 +57,10 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/acd_family"
+                android:id="@+id/ac_family"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/whiteTextColor"
-                app:cardCornerRadius="10dp">
+                app:cardBackgroundColor="@color/whiteTextColor">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -147,12 +68,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/ac_family"
+                        android:id="@+id/imageButton2"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:srcCompat="@drawable/a_family" />
 
                     <TextView
+                        android:id="@+id/textView5"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="family"
@@ -161,11 +83,10 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/acd_friends"
+                android:id="@+id/ac_friends"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/whiteTextColor"
-                app:cardCornerRadius="10dp">
+                app:cardBackgroundColor="@color/whiteTextColor">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -173,12 +94,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/ac_friends"
+                        android:id="@+id/imageButton3"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:srcCompat="@drawable/a_friends" />
 
                     <TextView
+                        android:id="@+id/textView6"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="friends"
@@ -188,11 +110,10 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/acd_hobbies"
+                android:id="@+id/ac_hobbies"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/whiteTextColor"
-                app:cardCornerRadius="10dp">
+                app:cardBackgroundColor="@color/whiteTextColor">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -200,12 +121,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/ac_hobbies"
+                        android:id="@+id/imageButton4"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:srcCompat="@drawable/a_hobbies" />
 
                     <TextView
+                        android:id="@+id/textView7"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="hobbies"
@@ -221,11 +143,10 @@
             android:orientation="horizontal">
 
             <android.support.v7.widget.CardView
-                android:id="@+id/acd_school"
+                android:id="@+id/ac_school"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/whiteTextColor"
-                app:cardCornerRadius="10dp">
+                app:cardBackgroundColor="@color/whiteTextColor">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -233,12 +154,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/ac_school"
+                        android:id="@+id/imageButton5"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:srcCompat="@drawable/a_school" />
 
                     <TextView
+                        android:id="@+id/textView8"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="school"
@@ -248,11 +170,10 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/acd_relationship"
+                android:id="@+id/ac_relationship"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/whiteTextColor"
-                app:cardCornerRadius="10dp">
+                app:cardBackgroundColor="@color/whiteTextColor">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -260,12 +181,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/ac_relationship"
+                        android:id="@+id/imageButton6"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:srcCompat="@drawable/a_relationships" />
 
                     <TextView
+                        android:id="@+id/textView9"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="relationship"
@@ -275,11 +197,10 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/acd_travelling"
+                android:id="@+id/ac_travelling"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/whiteTextColor"
-                app:cardCornerRadius="10dp">
+                app:cardBackgroundColor="@color/whiteTextColor">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -287,12 +208,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/ac_travelling"
+                        android:id="@+id/imageButton7"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:srcCompat="@drawable/a_travelling" />
 
                     <TextView
+                        android:id="@+id/textView10"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="travelling"
@@ -303,11 +225,10 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/acd_sleep"
+                android:id="@+id/ac_sleep"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/whiteTextColor"
-                app:cardCornerRadius="10dp">
+                app:cardBackgroundColor="@color/whiteTextColor">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -315,12 +236,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/ac_sleep"
+                        android:id="@+id/imageButton8"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:srcCompat="@drawable/a_sleep" />
 
                     <TextView
+                        android:id="@+id/textView11"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="sleep"
@@ -335,11 +257,10 @@
             android:orientation="horizontal">
 
             <android.support.v7.widget.CardView
-                android:id="@+id/acd_food"
+                android:id="@+id/ac_food"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/whiteTextColor"
-                app:cardCornerRadius="10dp">
+                app:cardBackgroundColor="@color/whiteTextColor">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -347,12 +268,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/ac_food"
+                        android:id="@+id/imageButton9"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:srcCompat="@drawable/a_food" />
 
                     <TextView
+                        android:id="@+id/textView12"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="food "
@@ -362,11 +284,10 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/acd_exercise"
+                android:id="@+id/ac_exercise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/whiteTextColor"
-                app:cardCornerRadius="10dp">
+                app:cardBackgroundColor="@color/whiteTextColor">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -374,12 +295,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/ac_exercise"
+                        android:id="@+id/imageButton10"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:srcCompat="@drawable/a_exercise" />
 
                     <TextView
+                        android:id="@+id/textView13"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="exercise"
@@ -388,11 +310,10 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/acd_health"
+                android:id="@+id/ac_health"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/whiteTextColor"
-                app:cardCornerRadius="10dp">
+                app:cardBackgroundColor="@color/whiteTextColor">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -400,12 +321,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/ac_health"
+                        android:id="@+id/imageButton11"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:srcCompat="@drawable/a_health" />
 
                     <TextView
+                        android:id="@+id/textView14"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="health"
@@ -414,11 +336,10 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/acd_music"
+                android:id="@+id/ac_music"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/whiteTextColor"
-                app:cardCornerRadius="10dp">
+                app:cardBackgroundColor="@color/whiteTextColor">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -426,12 +347,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/ac_music"
+                        android:id="@+id/imageButton12"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:srcCompat="@drawable/a_music" />
 
                     <TextView
+                        android:id="@+id/textView15"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="music"
@@ -440,51 +362,6 @@
             </android.support.v7.widget.CardView>
         </LinearLayout>
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:cardBackgroundColor="@color/whiteTextColor"
-            app:cardCornerRadius="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/ac_notes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="30dp"
-                    android:background="@color/whiteTextColor"
-                    android:padding="8dp"
-                    android:paddingTop="16dp"
-                    android:text="Can you talk a little bit about that moment?"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/ac_notes_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:inputType="textMultiLine"
-                    android:textAlignment="textStart" />
-
-                <Button
-                    android:id="@+id/ac_save_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="save"
-                    android:background="@drawable/btn_rounded"
-                    android:textColor="@color/whiteTextColor"/>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
     </LinearLayout>
 
-
-
-</LinearLayout>
+</FrameLayout>

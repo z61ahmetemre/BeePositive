@@ -13,6 +13,10 @@
             android:icon="@drawable/icons8_spiral_bound_booklet_50"
             android:title="@string/menu_notes" />
         <item
+            android:id="@+id/nav_create_moment"
+            android:icon="@drawable/icons8_create_document_50"
+            android:title="Create a moment" />
+        <item
             android:id="@+id/nav_activities"
             android:icon="@drawable/icons8_climbing_50_2"
             android:title="@string/menu_activities" />

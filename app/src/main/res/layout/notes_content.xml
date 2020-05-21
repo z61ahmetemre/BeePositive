@@ -42,6 +42,7 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textMultiLine"
+        android:textAlignment="textStart"
         android:visibility="invisible" />
 
     <Button
