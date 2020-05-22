@@ -106,6 +106,12 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            toolbar.setTitle("Settings");
+            SettingsFragment settingsFragment = new SettingsFragment();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.your_placeholder, settingsFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
             return true;
         }
 
@@ -116,6 +122,12 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        TextView tw = headerView.findViewById(R.id.user_name);
+        tw.setText(user.getName());
+        tw = headerView.findViewById(R.id.user_email);
+        tw.setText(user.getUserID());
         int id = item.getItemId();
         TextView view = findViewById(R.id.HELLO);
         if (id == R.id.nav_my_profile) {

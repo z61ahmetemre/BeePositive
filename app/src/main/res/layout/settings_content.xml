@@ -45,7 +45,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="70dp"
+                            android:layout_width="60dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Name "
@@ -55,9 +55,16 @@
 
                         <EditText
                             android:id="@+id/s_user_name"
-                            android:layout_width="70dp"
+                            android:layout_width="60dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1" />
+
+                        <Button
+                            android:id="@+id/sb_user_name"
+                            android:layout_width="5dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="SAVE"/>
                     </LinearLayout>
 
                     <View
@@ -73,7 +80,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="70dp"
+                            android:layout_width="60dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Age "
@@ -83,9 +90,16 @@
 
                         <EditText
                             android:id="@+id/s_user_age"
-                            android:layout_width="70dp"
+                            android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1" />
+                            android:layout_weight="1"
+                            android:inputType="numberDecimal" />
+                        <Button
+                            android:id="@+id/sb_user_age"
+                            android:layout_width="5dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="SAVE"/>
                     </LinearLayout>
 
                     <View
@@ -99,21 +113,40 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
-
                         <TextView
-                            android:layout_width="70dp"
+                            android:layout_width="60dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Sex "
+                            android:text="Age "
                             android:textAlignment="textStart"
                             android:textSize="18sp"
                             android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/s_user_sex"
-                            android:layout_width="70dp"
+                        <RadioGroup
+                            android:id="@+id/s_sexes"
+                            android:layout_width="100dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1" />
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/s_male"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Male" />
+
+                            <RadioButton
+                                android:id="@+id/s_female"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Female" />
+
+                            <RadioButton
+                                android:id="@+id/s_other"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Other" />
+                        </RadioGroup>
+
                     </LinearLayout>
                 </LinearLayout>
 
