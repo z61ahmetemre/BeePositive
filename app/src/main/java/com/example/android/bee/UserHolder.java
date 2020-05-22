@@ -22,8 +22,35 @@ public class UserHolder {
     private int testCounter;
     private String regisrationDate;
     private int weekCounter;
+    private int dayCounter;
+    private int momentCounter;
+    private List<Moment> moments;
 
     public UserHolder() {
+    }
+
+    public int getDayCounter() {
+        return dayCounter;
+    }
+
+    public void setDayCounter(int dayCounter) {
+        this.dayCounter = dayCounter;
+    }
+
+    public int getMomentCounter() {
+        return momentCounter;
+    }
+
+    public void setMomentCounter(int momentCounter) {
+        this.momentCounter = momentCounter;
+    }
+
+    public List<Moment> getMoments() {
+        return moments;
+    }
+
+    public void setMoments(List<Moment> moments) {
+        this.moments = moments;
     }
 
     public String getName() {

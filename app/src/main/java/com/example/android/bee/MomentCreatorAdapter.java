@@ -1,21 +1,12 @@
-// MomentCreatorAdapter.java
-
 package com.example.android.bee;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -33,8 +24,7 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     User user = User.getInstance();
-//    ViewPager viewPager;
-//    TabLayout tabLayout;
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -55,6 +45,12 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
 
         final String selected_emoji[] = new String[1];
         selected_emoji[0] = "completely okay";
+
+        final Moment moment = new Moment();
+        moment.setEmoji("completely okay");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String date = sdf.format(new Date());
+        moment.setDate(date);
 
 
         // TODO: saate göre evening morning diyecek hale gelecek
@@ -78,6 +74,7 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
                         text.setText("really terrible");
                         selected_emoji[0] = "really terrible";
                         a_que.setText("Okay... What's making your moment really terrible?");
+                        moment.setEmoji(selected_emoji[0]);
                         break;
 
                     case 1:
@@ -85,6 +82,7 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
                         text.setText("somewhat bad");
                         selected_emoji[0] = "somewhat bad";
                         a_que.setText("Alright. What's making your moment somewhat bad?");
+                        moment.setEmoji(selected_emoji[0]);
                         break;
 
                     case 2:
@@ -92,6 +90,7 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
                         text.setText("completely okay");
                         selected_emoji[0] = "completely okay";
                         a_que.setText("Great! What's making your moment completely okay?");
+                        moment.setEmoji(selected_emoji[0]);
                         break;
 
                     case 3:
@@ -99,12 +98,14 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
                         text.setText("pretty good");
                         selected_emoji[0] = "pretty good";
                         a_que.setText("Nice! What's making your moment pretty good?");
+                        moment.setEmoji(selected_emoji[0]);
                         break;
                     case 4:
                         image.setImageResource(R.drawable.super_awesome_5);
                         text.setText("super awesome");
                         selected_emoji[0] = "super awesome";
                         a_que.setText("Cool! What's making your moment super awesome?");
+                        moment.setEmoji(selected_emoji[0]);
                         break;
 
                 }
@@ -136,40 +137,15 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
         final ImageView health   = view.findViewById(R.id.ac_health);
         final ImageView music    = view.findViewById(R.id.ac_music);
 
-
-
-//        if(selected_emoji[0].equals("really terrible")) {
-//            a_que.setText("Okay... What's making your moment really terrible?");  //  TODO:
-//        } else if(selected_emoji[0].equals("somewhat bad")) {
-//            a_que.setText("Alright. What's making your moment somewhat bad?");
-//        } else if(selected_emoji[0].equals("completely okay")) {
-//            a_que.setText("Great! What's making your moment completely okay?");
-//        } else if(selected_emoji[0].equals("pretty good")) {
-//            a_que.setText("Nice! What's making your moment pretty good?");
-//        } else if(selected_emoji[0].equals("super awesome")) {
-//            a_que.setText("Cool! What's making your moment super awesome?");
-//        }
-//
-//        final CardView c_work     = view.findViewById(R.id.acd_work);
-//        final CardView c_family   = view.findViewById(R.id.acd_family);
-//        final CardView c_friends  = view.findViewById(R.id.acd_friends);
-//        final CardView c_hobbies  = view.findViewById(R.id.acd_hobbies);
-//        final CardView c_school   = view.findViewById(R.id.acd_school);
-//        final CardView c_relation = view.findViewById(R.id.acd_relationship);
-//        final CardView c_travel   = view.findViewById(R.id.acd_travelling);
-//        final CardView c_sleep    = view.findViewById(R.id.acd_sleep);
-//        final CardView c_food     = view.findViewById(R.id.acd_food);
-//        final CardView c_exercise = view.findViewById(R.id.acd_exercise);
-//        final CardView c_health   = view.findViewById(R.id.acd_health);
-//        final CardView c_music    = view.findViewById(R.id.acd_music);
-
         work.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (work.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_work).getConstantState()) {
                     work.setImageResource(R.drawable.a_work_clicked);
+                    moment.selectActivity(0,true);
                 } else if(work.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_work_clicked).getConstantState()){
                     work.setImageResource(R.drawable.a_work);
+                    moment.selectActivity(0,false);
                 }
             }
         });
@@ -179,8 +155,10 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
             public void onClick(View view) {
                 if (family.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_family).getConstantState()) {
                     family.setImageResource(R.drawable.a_family_clicked);
+                    moment.selectActivity(1,true);
                 } else if(family.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_family_clicked).getConstantState()){
                     family.setImageResource(R.drawable.a_family);
+                    moment.selectActivity(1,false);
                 }
             }
         });
@@ -190,8 +168,10 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
             public void onClick(View view) {
                 if (friends.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_friends).getConstantState()) {
                     friends.setImageResource(R.drawable.a_friends_clicked);
+                    moment.selectActivity(2,true);
                 } else if(friends.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_friends_clicked).getConstantState()){
                     friends.setImageResource(R.drawable.a_friends);
+                    moment.selectActivity(2,false);
                 }
             }
         });
@@ -201,8 +181,10 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
             public void onClick(View view) {
                 if (hobbies.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_hobbies).getConstantState()) {
                     hobbies.setImageResource(R.drawable.a_hobbies_clicked);
+                    moment.selectActivity(3,true);
                 } else if(hobbies.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_hobbies_clicked).getConstantState()){
                     hobbies.setImageResource(R.drawable.a_hobbies);
+                    moment.selectActivity(3,false);
                 }
             }
         });
@@ -212,8 +194,10 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
             public void onClick(View view) {
                 if (school.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_school).getConstantState()) {
                     school.setImageResource(R.drawable.a_school_clicked);
+                    moment.selectActivity(4,true);
                 } else if(school.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_school_clicked).getConstantState()){
                     school.setImageResource(R.drawable.a_school);
+                    moment.selectActivity(4,false);
                 }
             }
         });
@@ -223,8 +207,10 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
             public void onClick(View view) {
                 if (relation.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_relationships).getConstantState()) {
                     relation.setImageResource(R.drawable.a_relationships_clicked);
+                    moment.selectActivity(5,true);
                 } else if(relation.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_relationships_clicked).getConstantState()){
                     relation.setImageResource(R.drawable.a_relationships);
+                    moment.selectActivity(5,false);
                 }
             }
         });
@@ -234,8 +220,10 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
             public void onClick(View view) {
                 if (travel.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_travelling).getConstantState()) {
                     travel.setImageResource(R.drawable.a_travelling_clicked);
+                    moment.selectActivity(6,true);
                 } else if(travel.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_travelling_clicked).getConstantState()){
                     travel.setImageResource(R.drawable.a_travelling);
+                    moment.selectActivity(6,false);
                 }
             }
         });
@@ -245,8 +233,10 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
             public void onClick(View view) {
                 if (sleep.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_sleep).getConstantState()) {
                     sleep.setImageResource(R.drawable.a_sleep_clicked);
+                    moment.selectActivity(7,true);
                 } else if(sleep.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_sleep_clicked).getConstantState()){
                     sleep.setImageResource(R.drawable.a_sleep);
+                    moment.selectActivity(7,false);
                 }
             }
         });
@@ -256,8 +246,10 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
             public void onClick(View view) {
                 if (food.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_food).getConstantState()) {
                     food.setImageResource(R.drawable.a_food_clicked);
+                    moment.selectActivity(8,true);
                 } else if(food.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_food_clicked).getConstantState()){
                     food.setImageResource(R.drawable.a_food);
+                    moment.selectActivity(8,false);
                 }
             }
         });
@@ -267,8 +259,10 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
             public void onClick(View view) {
                 if (exercise.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_exercise).getConstantState()) {
                     exercise.setImageResource(R.drawable.a_exercise_clicked);
+                    moment.selectActivity(9,true);
                 } else if(exercise.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_exercise_clicked).getConstantState()){
                     exercise.setImageResource(R.drawable.a_exercise);
+                    moment.selectActivity(9,false);
                 }
             }
         });
@@ -278,8 +272,10 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
             public void onClick(View view) {
                 if (health.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_health).getConstantState()) {
                     health.setImageResource(R.drawable.a_health_clicked);
+                    moment.selectActivity(10,true);
                 } else if(health.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_health_clicked).getConstantState()){
                     health.setImageResource(R.drawable.a_health);
+                    moment.selectActivity(10,false);
                 }
             }
         });
@@ -289,11 +285,30 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
             public void onClick(View view) {
                 if (music.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_music).getConstantState()) {
                     music.setImageResource(R.drawable.a_music_clicked);
+                    moment.selectActivity(11,true);
                 } else if(music.getDrawable().getConstantState() == view.getResources().getDrawable(R.drawable.a_music_clicked).getConstantState()){
                     music.setImageResource(R.drawable.a_music);
+                    moment.selectActivity(11,false);
                 }
             }
         });
+
+        final EditText editText = view.findViewById(R.id.ac_notes_edit_text);
+        final Button save = view.findViewById(R.id.ac_save_button);
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                moment.setTheMoment(String.valueOf(editText.getText()));
+                user.addMoment(moment);
+                user.setMomentCounter(user.getMomentCounter()+1);
+                String index = (user.getMomentCounter() - 1) + "";
+                mDatabase.child("users").child(mAuth.getUid()).child("momentCounter").setValue(user.getMomentCounter());
+                mDatabase.child("users").child(mAuth.getUid()).child("moments").child(index).setValue(moment);
+                save.setClickable(false);
+            }
+        });
+
+
     }
 
     @Override

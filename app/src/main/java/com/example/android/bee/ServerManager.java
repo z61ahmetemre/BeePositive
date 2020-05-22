@@ -64,6 +64,9 @@ public class ServerManager {
                 user.setTestCounter(holder[0].getTestCounter());
                 user.setRegisrationDate(holder[0].getRegisrationDate());
                 user.setWeekCounter(holder[0].getWeekCounter());
+                user.setDayCounter(holder[0].getDayCounter());
+                user.setMomentCounter(holder[0].getMomentCounter());
+                user.setMoments(holder[0].getMoments());
             }
 
             @Override
