@@ -1,7 +1,5 @@
 package com.example.android.bee;
 
-import android.widget.Toast;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,6 +29,8 @@ public class User {
     private int dayCounter;
     private int momentCounter;
     private List<Moment> moments;
+    private List<Test> dailyTests;
+    private List<Test> weeklyTests;
 
     private User() {
         happinessHistory = new ArrayList<Double>();
@@ -38,6 +38,14 @@ public class User {
         moments = new ArrayList<>();
         Moment tmp = new Moment();
         moments.add(tmp);
+
+        Test d = new Test(0);
+        Test w = new Test(1);
+        dailyTests = new ArrayList<>();
+        weeklyTests= new ArrayList<>();
+        dailyTests.add(d);
+        weeklyTests.add(w);
+
     }
 
     public static User getInstance() {
@@ -46,11 +54,34 @@ public class User {
         return instance;
     }
 
+    public boolean checkDailyTestExist() {
+        if(dayCounter > testCounter)
+            return true;
+        else
+            return false;
+    }
+
+    public boolean checkWeeklyTestExist() {
+        if(dayCounter % 7 == 0)
+            return true;
+        else
+            return false;
+    }
+
     public void addMoment(Moment m) {
         moments.add(m);
     }
 
-    public void calculateDayCounter() {
+    public void addDailyTests(Test t) {
+        dailyTests.add(t);
+    }
+
+    public void addWeeklyTests(Test t) {
+        weeklyTests.add(t);
+    }
+
+    public int calculateDayCounter() {
+        int result = -1;
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             String theDate = sdf.format(new Date());
@@ -63,12 +94,14 @@ public class User {
             date2 = dates.parse(FinalDate);
             long difference = Math.abs(date1.getTime() - date2.getTime());
             long differenceDates = difference / (24 * 60 * 60 * 1000);
-            dayCounter = (int) differenceDates;
+            //dayCounter = (int) differenceDates;
+            result = (int) differenceDates;
             //String dayDifference = Long.toString(differenceDates);
             //textView.setText("The difference between two dates is " + dayDifference + " days");
         } catch (Exception exception) {
             //Toast.makeText(this, "Unable to find difference", Toast.LENGTH_SHORT).show();
         }
+        return result + 1;
     }
 
     public int getDayCounter() {

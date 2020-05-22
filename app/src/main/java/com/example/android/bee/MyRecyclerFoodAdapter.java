@@ -1,7 +1,11 @@
 package com.example.android.bee;
 
+import android.annotation.SuppressLint;
+import android.app.FragmentTransaction;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +61,7 @@ public class MyRecyclerFoodAdapter extends RecyclerView.Adapter {
         final CheckBox[] checkBoxes = {c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19};
 
         food_submit.setOnClickListener(new View.OnClickListener() {
+                                           @SuppressLint("ResourceType")
                                            @Override
                                            public void onClick(View view) {
 
@@ -72,6 +77,15 @@ public class MyRecyclerFoodAdapter extends RecyclerView.Adapter {
                                                        mDatabase.child("users").child(mAuth.getUid()).child("endorphins").setValue(user.getEndorphins());
                                                    }
                                                }
+
+                                               AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                                               activity.getSupportActionBar().setTitle("My Profile");
+                                               ProfileFragment profileFragment = new ProfileFragment();
+                                               FragmentTransaction fragmentTransaction = activity.getFragmentManager().beginTransaction();
+                                               fragmentTransaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
+                                               fragmentTransaction.replace(R.id.your_placeholder, profileFragment);
+                                               fragmentTransaction.addToBackStack(null);
+                                               fragmentTransaction.commit();
                                            }
                                        }
         );

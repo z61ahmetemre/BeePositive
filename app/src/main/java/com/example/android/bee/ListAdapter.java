@@ -1,8 +1,11 @@
 package com.example.android.bee;
 
+import android.app.FragmentTransaction;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +16,9 @@ import android.widget.RadioButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class ListAdapter extends RecyclerView.Adapter {
@@ -164,10 +170,24 @@ public class ListAdapter extends RecyclerView.Adapter {
                 test.setAnswerBlank(19, String.valueOf(a20.getText()));
                 test.setAnswerBlank(20, String.valueOf(a21.getText()));
 
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                String date = sdf.format(new Date());
+                test.date = date;
+                user.addWeeklyTests(test);
                 user.setWeekCounter(user.getWeekCounter() + 1);
+                String index = (user.getWeekCounter() -  1) + "";
                 mDatabase.child("users").child(mAuth.getUid()).child("weekCounter").setValue(user.getWeekCounter());
-                mDatabase.child("wtests").child(mAuth.getUid() + "-W" + user.getWeekCounter()).setValue(test);
+                mDatabase.child("users").child(mAuth.getUid()).child("weeklyTests").child(index).setValue(test);
+                //mDatabase.child("wtests").child(mAuth.getUid() + "-W" + user.getWeekCounter()).setValue(test);
                 submit.setClickable(false);
+
+                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                activity.getSupportActionBar().setTitle("My Profile");
+                ProfileFragment profileFragment = new ProfileFragment();
+                FragmentTransaction fragmentTransaction = activity.getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.your_placeholder, profileFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 

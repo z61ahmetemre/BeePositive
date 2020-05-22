@@ -1,7 +1,10 @@
 package com.example.android.bee;
 
+import android.app.FragmentTransaction;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,6 +73,15 @@ public class MyRecyclerActivitiesAdapter extends RecyclerView.Adapter {
                                                              mDatabase.child("users").child(mAuth.getUid()).child("endorphins").setValue(user.getEndorphins());
                                                          }
                                                      }
+
+
+                                                     AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                                                     activity.getSupportActionBar().setTitle("My Profile");
+                                                     ProfileFragment profileFragment = new ProfileFragment();
+                                                     FragmentTransaction fragmentTransaction = activity.getFragmentManager().beginTransaction();
+                                                     fragmentTransaction.replace(R.id.your_placeholder, profileFragment);
+                                                     fragmentTransaction.addToBackStack(null);
+                                                     fragmentTransaction.commit();
                                                  }
                                              }
         );

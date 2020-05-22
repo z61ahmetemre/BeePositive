@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         ProfileFragment profileFragment = new ProfileFragment();
-        fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.your_placeholder, profileFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
@@ -152,7 +153,7 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_day_test) {
-            if (false) { //TODO: condition düzeltilecek
+            if (user.checkDailyTestExist()) { //TODO: condition düzeltilecek
                 toolbar.setTitle("Daily Test");
                 DailyFragment dailyFragment = new DailyFragment();
                 fragmentTransaction = fragmentManager.beginTransaction();
@@ -185,7 +186,7 @@ public class MainActivity extends AppCompatActivity
                 });
             }
         } else if (id == R.id.nav_week_test) {
-            if (user.getTestCounter() / 7 >= user.getWeekCounter()) {//TODO: condition düzeltilecek
+            if (user.checkWeeklyTestExist()) {//TODO: condition düzeltilecek
                 toolbar.setTitle("Weekly Test");
                 WeeklyFragment weeklyFragment = new WeeklyFragment();
                 fragmentTransaction = fragmentManager.beginTransaction();

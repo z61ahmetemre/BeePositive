@@ -17,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.Serializable;
 
@@ -27,7 +29,7 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
 
-
+    private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     private User user;
     private ServerManager sm;
@@ -50,6 +52,7 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
         mAuth = FirebaseAuth.getInstance();
         user = User.getInstance();
         sm = ServerManager.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
@@ -145,6 +148,8 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                user.setDayCounter(user.calculateDayCounter());
+                mDatabase.child("users").child(mAuth.getUid()).child("dayCounter").setValue(user.getDayCounter());
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivityForResult(intent, 0);
             }
