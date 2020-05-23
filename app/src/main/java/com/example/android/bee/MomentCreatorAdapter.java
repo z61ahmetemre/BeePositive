@@ -310,10 +310,10 @@ public class MomentCreatorAdapter extends RecyclerView.Adapter{
                 save.setClickable(false);
 
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                activity.getSupportActionBar().setTitle("My Profile");
-                ProfileFragment profileFragment = new ProfileFragment();
+                activity.getSupportActionBar().setTitle("Moments");
+                MomentsFragment fragment = new MomentsFragment();
                 FragmentTransaction fragmentTransaction = activity.getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.your_placeholder, profileFragment);
+                fragmentTransaction.replace(R.id.your_placeholder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }

@@ -144,6 +144,13 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.your_placeholder, notesFragment);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
+        } else if (id == R.id.nav_moments) {
+            toolbar.setTitle("Moments");
+            MomentsFragment fragment = new MomentsFragment();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.your_placeholder, fragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_create_moment) {
             toolbar.setTitle("Create a Moment");
             MomentCreatorFragment fragment = new MomentCreatorFragment();

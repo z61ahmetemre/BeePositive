@@ -1,9 +1,6 @@
 package com.example.android.bee;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,14 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
-
-import com.example.android.bee.GraphsActivity;
-import com.example.android.bee.R;
-import com.example.android.bee.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 public class SettingsAdapter extends RecyclerView.Adapter {
     View view;
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();

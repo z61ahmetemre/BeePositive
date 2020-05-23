@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="#fff7ff"
+    app:cardCornerRadius="15dp"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="116dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="116dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/m_emojiImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:layout_weight="0"
+                android:scaleType="fitCenter" />
+
+            <Button
+                android:id="@+id/delete_moment"
+                android:layout_width="100dp"
+                android:layout_height="18dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/delete_settings"
+                android:text="delete"
+                android:textAlignment="center"
+                android:textColor="@color/whiteTextColor" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/m_work"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/a_work" />
+
+                <ImageView
+                    android:id="@+id/m_family"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/a_family" />
+
+                <ImageView
+                    android:id="@+id/m_friends"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/a_friends" />
+
+                <ImageView
+                    android:id="@+id/m_hobbies"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/a_hobbies" />
+
+                <ImageView
+                    android:id="@+id/m_school"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/a_school" />
+
+                <ImageView
+                    android:id="@+id/m_relationship"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/a_relationships" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/m_travelling"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/a_travelling" />
+
+                <ImageView
+                    android:id="@+id/m_sleep"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/a_sleep" />
+
+                <ImageView
+                    android:id="@+id/m_food"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/a_food" />
+
+                <ImageView
+                    android:id="@+id/m_exercise"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/a_exercise" />
+
+                <ImageView
+                    android:id="@+id/m_health"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/a_health" />
+
+                <ImageView
+                    android:id="@+id/m_music"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/a_music" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/m_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
