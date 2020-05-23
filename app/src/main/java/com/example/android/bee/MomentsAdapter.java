@@ -104,7 +104,7 @@ public class MomentsAdapter extends RecyclerView.Adapter {
                 mDatabase.child("users").child(mAuth.getUid()).child("momentCounter").setValue(user.getMomentCounter());
                 mDatabase.child("users").child(mAuth.getUid()).child("moments").setValue(user.getMoments());
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                activity.getSupportActionBar().setTitle("My Profile");
+                activity.getSupportActionBar().setTitle("Moments");
                 MomentsFragment fragment = new MomentsFragment();
                 FragmentTransaction fragmentTransaction = activity.getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.your_placeholder, fragment);
@@ -116,7 +116,7 @@ public class MomentsAdapter extends RecyclerView.Adapter {
                 mDatabase.child("users").child(mAuth.getUid()).child("momentCounter").setValue(user.getMomentCounter());
                 mDatabase.child("users").child(mAuth.getUid()).child("moments").setValue(user.getMoments());
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                activity.getSupportActionBar().setTitle("My Profile");
+                activity.getSupportActionBar().setTitle("Moments");
                 MomentsFragment fragment = new MomentsFragment();
                 FragmentTransaction fragmentTransaction = activity.getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.your_placeholder, fragment);
