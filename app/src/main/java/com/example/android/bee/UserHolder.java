@@ -11,12 +11,11 @@ public class UserHolder {
     private int sex;
     private double happinessPercentage;
     private int age;
-    private int dopamine;
-    private int serotonin;
-    private int endorphins;
-    private int oxytocin;
+    private List<Integer> dopamine;
+    private List<Integer> serotonin;
+    private List<Integer> endorphins;
+    private List<Integer> oxytocin;
     private String password;
-    private boolean isRegistered;
     private List<Double> happinessHistory;
     private String notes;
     private int testCounter;
@@ -25,8 +24,26 @@ public class UserHolder {
     private int dayCounter;
     private int momentCounter;
     private List<Moment> moments;
+    private List<Test> dailyTests;
+    private List<Test> weeklyTests;
 
     public UserHolder() {
+    }
+
+    public List<Test> getDailyTests() {
+        return dailyTests;
+    }
+
+    public void setDailyTests(List<Test> dailyTests) {
+        this.dailyTests = dailyTests;
+    }
+
+    public List<Test> getWeeklyTests() {
+        return weeklyTests;
+    }
+
+    public void setWeeklyTests(List<Test> weeklyTests) {
+        this.weeklyTests = weeklyTests;
     }
 
     public int getDayCounter() {
@@ -93,35 +110,35 @@ public class UserHolder {
         this.age = age;
     }
 
-    public int getDopamine() {
+    public List<Integer> getDopamine() {
         return dopamine;
     }
 
-    public void setDopamine(int dopamine) {
+    public void setDopamine(List<Integer> dopamine) {
         this.dopamine = dopamine;
     }
 
-    public int getSerotonin() {
+    public List<Integer> getSerotonin() {
         return serotonin;
     }
 
-    public void setSerotonin(int serotonin) {
+    public void setSerotonin(List<Integer> serotonin) {
         this.serotonin = serotonin;
     }
 
-    public int getEndorphins() {
+    public List<Integer> getEndorphins() {
         return endorphins;
     }
 
-    public void setEndorphins(int endorphins) {
+    public void setEndorphins(List<Integer> endorphins) {
         this.endorphins = endorphins;
     }
 
-    public int getOxytocin() {
+    public List<Integer> getOxytocin() {
         return oxytocin;
     }
 
-    public void setOxytocin(int oxytocin) {
+    public void setOxytocin(List<Integer> oxytocin) {
         this.oxytocin = oxytocin;
     }
 
@@ -131,14 +148,6 @@ public class UserHolder {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public boolean isRegistered() {
-        return isRegistered;
-    }
-
-    public void setRegistered(boolean registered) {
-        isRegistered = registered;
     }
 
     public List<Double> getHappinessHistory() {

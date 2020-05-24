@@ -63,13 +63,13 @@ public class MyRecyclerActivitiesAdapter extends RecyclerView.Adapter {
                                                  public void onClick(View view) {
                                                      for (int i = 0; i < 18; i++) {
                                                          if (checkBox[i].isChecked()) {
-                                                             user.setDopamine(user.getDopamine() + food_dopamine[i]);
+                                                             user.getDopamine().add(user.getDayCounter(), food_dopamine[i]);
                                                              mDatabase.child("users").child(mAuth.getUid()).child("dopamine").setValue(user.getDopamine());
-                                                             user.setSerotonin(user.getSerotonin() + food_serotonin[i]);
+                                                             user.getSerotonin().add(user.getDayCounter(), food_serotonin[i]);
                                                              mDatabase.child("users").child(mAuth.getUid()).child("serotonin").setValue(user.getSerotonin());
-                                                             user.setOxytocin(user.getOxytocin() + food_oxytocin[i]);
+                                                             user.getOxytocin().add(user.getDayCounter(), food_oxytocin[i]);
                                                              mDatabase.child("users").child(mAuth.getUid()).child("oxytocin").setValue(user.getOxytocin());
-                                                             user.setEndorphins(user.getEndorphins() + food_endorphins[i]);
+                                                             user.getEndorphins().add(user.getDayCounter(), food_endorphins[i]);
                                                              mDatabase.child("users").child(mAuth.getUid()).child("endorphins").setValue(user.getEndorphins());
                                                          }
                                                      }

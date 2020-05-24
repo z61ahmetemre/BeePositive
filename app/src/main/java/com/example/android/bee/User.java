@@ -14,13 +14,12 @@ public class User {
     private int sex;
     private double happinessPercentage;
     private int age;
-    private int dopamine;
-    private int serotonin;
-    private int endorphins;
-    private int oxytocin;
+    private List<Integer> dopamine;     //Indexes show daily values
+    private List<Integer> serotonin;    //Indexes show daily values
+    private List<Integer> endorphins;   //Indexes show daily values
+    private List<Integer> oxytocin;     //Indexes show daily values
     private String password;
-    private boolean isRegistered;
-    private List<Double> happinessHistory;
+    private List<Double> happinessHistory;  //Indexes show daily values
     private String notes;     //in profile users can store their own notes
     private int testCounter;  //to know how many daily test is solved
     private String regisrationDate;
@@ -34,7 +33,30 @@ public class User {
 
     private User() {
         happinessHistory = new ArrayList<Double>();
-        happinessHistory.add(-1.0);
+        for(int i = 0; i < 31; i++) {
+            happinessHistory.add(i,-1.0);
+        }
+
+        dopamine = new ArrayList<Integer>();
+        for(int i = 0; i < 31; i++) {
+            dopamine.add(i,-1);
+        }
+
+        serotonin = new ArrayList<Integer>();
+        for(int i = 0; i < 31; i++) {
+            serotonin.add(i,-1);
+        }
+
+        endorphins = new ArrayList<Integer>();
+        for(int i = 0; i < 31; i++) {
+            endorphins.add(i,-1);
+        }
+
+        oxytocin = new ArrayList<Integer>();
+        for(int i = 0; i < 31; i++) {
+            oxytocin.add(i,-1);
+        }
+
         moments = new ArrayList<>();
         Moment tmp = new Moment();
         moments.add(tmp);
@@ -45,7 +67,6 @@ public class User {
         weeklyTests= new ArrayList<>();
         dailyTests.add(d);
         weeklyTests.add(w);
-
     }
 
     public static User getInstance() {
@@ -176,36 +197,36 @@ public class User {
         notes = s;
     }
 
-    public int getDopamine() {
+    public List<Integer> getDopamine() {
         return dopamine;
     }
 
-    public int getSerotonin() {
+    public void setDopamine(List<Integer> dopamine) {
+        this.dopamine = dopamine;
+    }
+
+    public List<Integer> getSerotonin() {
         return serotonin;
     }
 
-    public int getEndorphins() {
+    public void setSerotonin(List<Integer> serotonin) {
+        this.serotonin = serotonin;
+    }
+
+    public List<Integer> getEndorphins() {
         return endorphins;
     }
 
-    public int getOxytocin() {
+    public void setEndorphins(List<Integer> endorphins) {
+        this.endorphins = endorphins;
+    }
+
+    public List<Integer> getOxytocin() {
         return oxytocin;
     }
 
-    public void setDopamine(int i) {
-        dopamine = i;
-    }
-
-    public void setSerotonin(int i) {
-        serotonin = i;
-    }
-
-    public void setEndorphins(int i) {
-        endorphins = i;
-    }
-
-    public void setOxytocin(int i) {
-        oxytocin = i;
+    public void setOxytocin(List<Integer> oxytocin) {
+        this.oxytocin = oxytocin;
     }
 
     public double getHappinessPercentage() {
@@ -236,10 +257,6 @@ public class User {
         return password;
     }
 
-    public boolean getIsRegistered() {
-        return isRegistered;
-    }
-
     public void setName(String theName) {
         name = theName;
     }
@@ -260,10 +277,6 @@ public class User {
         password = thePass;
     }
 
-    public void setIsRegistered(boolean b) {
-        isRegistered = b;
-    }
-
     public int[][] showHappinessHistory() {
         return null;
     }
@@ -278,6 +291,22 @@ public class User {
 
     public void deleteAccount() {
         return;
+    }
+
+    public List<Test> getDailyTests() {
+        return dailyTests;
+    }
+
+    public void setDailyTests(List<Test> dailyTests) {
+        this.dailyTests = dailyTests;
+    }
+
+    public List<Test> getWeeklyTests() {
+        return weeklyTests;
+    }
+
+    public void setWeeklyTests(List<Test> weeklyTests) {
+        this.weeklyTests = weeklyTests;
     }
 }
 
