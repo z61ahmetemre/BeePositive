@@ -14,6 +14,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 
 public class ListAdapterProgress extends RecyclerView.Adapter {
     View view;
@@ -40,12 +43,75 @@ public class ListAdapterProgress extends RecyclerView.Adapter {
         TextView oxyt   = view.findViewById(R.id.pr_o);
         TextView point  = view.findViewById(R.id.pr_point);
 
-        title.setText("Hey " + user.getName() + ", these points are today achieved. If you want to see past day points and your progress in detail click the show button. ");
-        dopa.setText(user.getDopamine().get(user.getDayCounter()-1)+" points");
-        sero.setText(user.getSerotonin().get(user.getDayCounter()-1)+" points");
-        endo.setText(user.getEndorphins().get(user.getDayCounter()-1)+" points");
-        oxyt.setText(user.getOxytocin().get(user.getDayCounter()-1)+" points");
-        point.setText(user.getHappinessHistory().get(user.getDayCounter())+" points");
+        double doPoint, sePoint, enPoint, oxPoint, haPoint;
+
+        title.setText("Hey " + user.getName() + ", these percentages are achieved today. If you want to see points you earned in detail click the show button. ");
+        /*
+        ACTIVITIES		FOODS		TOTAL		NEED		                RATIO-TO-100
+
+        Dopamine	    2750			2650		5400		    1500		0.0667
+        Endorphin 	    2050			240	      2290(2150)		600		    0.16667
+        Serotonin	    3680			3500		7180		    2000		0.05
+        Oxytocin 	    3350			790	      4140(3900)		1083		0.09234
+*/
+        if((user.getDopamine().get(user.getDayCounter()-1))*(0.0667)>=100 ) {
+
+            dopa.setText("100+ %");
+            doPoint = 100;
+        } else if ((user.getDopamine().get(user.getDayCounter()-1))*(0.0667)<=0){
+            doPoint = 0;
+            dopa.setText(doPoint + " %");
+        } else {
+            doPoint = (user.getDopamine().get(user.getDayCounter()-1))*(0.0667);
+            Double truncatedDoPoint = BigDecimal.valueOf(doPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            dopa.setText(truncatedDoPoint + " %");
+        }
+
+
+        if((user.getEndorphins().get(user.getDayCounter()-1))*(0.16667)>=100 ) {
+            endo.setText("100+ %");
+            enPoint = 100;
+        } else if ((user.getEndorphins().get(user.getDayCounter()-1))*(0.16667)<=0){
+            enPoint = 0;
+            endo.setText(enPoint + " %");
+        } else {
+            enPoint = (user.getEndorphins().get(user.getDayCounter()-1))*(0.16667);
+            Double truncatedEnPoint = BigDecimal.valueOf(enPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            endo.setText(truncatedEnPoint + " %");
+        }
+
+        if((user.getSerotonin().get(user.getDayCounter()-1))*(0.05)>=100 ) {
+            sero.setText("100+ %");
+            sePoint = 100;
+        } else if ((user.getSerotonin().get(user.getDayCounter()-1))*(0.05)<=0){
+            sePoint = 0;
+            sero.setText(sePoint + " %");
+        } else {
+            sePoint = (user.getSerotonin().get(user.getDayCounter()-1))*(0.05);
+            Double truncatedSePoint = BigDecimal.valueOf(sePoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            sero.setText(truncatedSePoint + " %");
+        }
+
+        if((user.getOxytocin().get(user.getDayCounter()-1))*(0.09234)>=100 ) {
+            oxyt.setText("100+ %");
+            oxPoint = 100;
+        } else if ((user.getOxytocin().get(user.getDayCounter()-1))*(0.09234)<=0){
+            oxPoint = 0;
+            oxyt.setText(oxPoint + " %");
+        } else {
+            oxPoint = (user.getOxytocin().get(user.getDayCounter()-1))*(0.09234);
+            Double truncatedOxPoint = BigDecimal.valueOf(oxPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            oxyt.setText(truncatedOxPoint + " %");
+        }
+        haPoint = (doPoint/4) + (sePoint/4) + (enPoint/4) + (oxPoint/4);
+        Double truncatedHaPoint = BigDecimal.valueOf(haPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        if (haPoint<=0) {
+            haPoint = 0;
+            point.setText(haPoint + "%");
+        }
+        else
+            point.setText(truncatedHaPoint +" %");
+        // point.setText(user.getHappinessHistory().get(user.getDayCounter())+" points");
 
         showGraphs.setOnClickListener(new View.OnClickListener() {
             @Override
