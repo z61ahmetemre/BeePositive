@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GraphsActivity extends AppCompatActivity {
+    User user = User.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,13 +28,15 @@ public class GraphsActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
+
+
         Cartesian3d bar3d = AnyChart.bar3d();
 
         bar3d.animation(true);
 
         bar3d.padding(10d, 40d, 5d, 20d);
 
-        bar3d.title("Top 3 Products with Region Sales Data");
+        bar3d.title("Hormones Point History");
 
         bar3d.yScale().minimum(0d);
 
@@ -41,14 +44,17 @@ public class GraphsActivity extends AppCompatActivity {
             .rotation(-90d)
             .padding(0d, 0d, 20d, 0d);
 
-        bar3d.yAxis(0).labels().format("${%Value}{groupsSeparator: }");
+        bar3d.yAxis(0).labels().format("{%Value}{groupsSeparator: }");
 
-        bar3d.yAxis(0).title("Revenue in Dollars");
+        bar3d.yAxis(0).title("Points");
 
         List<DataEntry> data = new ArrayList<>();
-        data.add(new CustomDataEntry("Nail polish", 6229, 4376, 4054, 2381));
-        data.add(new CustomDataEntry("Eyebrow pencil", 9332, 8987, 5067, 1401));
-        data.add(new CustomDataEntry("Lipstick", 9256, 7376, 5054, 981));
+        //data.add(new CustomDataEntry("Nail polish", 6229, 4376, 4054, 2381));
+        for(int i= 0; i < user.getDayCounter() && i < 31;i++){
+            data.add(new CustomDataEntry("Day" + (i+1),user.getDopamine().get(i),user.getEndorphins().get(i),user.getSerotonin().get(i),user.getOxytocin().get(i)));
+        }
+        //data.add(new CustomDataEntry("Eyebrow pencil", 9332, 8987, 5067, 1401));
+        //data.add(new CustomDataEntry("Lipstick", 9256, 7376, 5054, 981));
 
         Set set = Set.instantiate();
         set.data(data);
@@ -58,16 +64,16 @@ public class GraphsActivity extends AppCompatActivity {
         Mapping bar4Data = set.mapAs("{ x: 'x', value: 'value4' }");
 
         bar3d.bar(bar1Data)
-            .name("Florida");
+            .name("Dopamine");
 
         bar3d.bar(bar2Data)
-            .name("Texas");
+            .name("Endorphin");
 
         bar3d.bar(bar3Data)
-            .name("Arizona");
+            .name("Serotonin");
 
         bar3d.bar(bar4Data)
-            .name("Nevada");
+            .name("Oxytocin");
 
         bar3d.legend().enabled(true);
         bar3d.legend().fontSize(13d);
@@ -81,7 +87,7 @@ public class GraphsActivity extends AppCompatActivity {
             .anchor(Anchor.LEFT_CENTER)
             .offsetX(5d)
             .offsetY(0d)
-            .format("${%Value}");
+            .format("{%Value} points");
 
         bar3d.zAspect("10%")
             .zPadding(20d)

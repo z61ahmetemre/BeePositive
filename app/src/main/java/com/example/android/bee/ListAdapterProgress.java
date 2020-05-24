@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +33,19 @@ public class ListAdapterProgress extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         ((ListViewHolder) viewHolder).bindView(i);
         final Button showGraphs = view.findViewById(R.id.show_graphics);
+        TextView title  = view.findViewById(R.id.pr_title);
+        TextView dopa   = view.findViewById(R.id.pr_d);
+        TextView sero   = view.findViewById(R.id.pr_s);
+        TextView endo   = view.findViewById(R.id.pr_e);
+        TextView oxyt   = view.findViewById(R.id.pr_o);
+        TextView point  = view.findViewById(R.id.pr_point);
+
+        title.setText("Hey " + user.getName() + ", these points are today achieved. If you want to see past day points and your progress in detail click the show button. ");
+        dopa.setText(user.getDopamine().get(user.getDayCounter()-1)+" points");
+        sero.setText(user.getSerotonin().get(user.getDayCounter()-1)+" points");
+        endo.setText(user.getEndorphins().get(user.getDayCounter()-1)+" points");
+        oxyt.setText(user.getOxytocin().get(user.getDayCounter()-1)+" points");
+        point.setText(user.getHappinessHistory().get(user.getDayCounter())+" points");
 
         showGraphs.setOnClickListener(new View.OnClickListener() {
             @Override
