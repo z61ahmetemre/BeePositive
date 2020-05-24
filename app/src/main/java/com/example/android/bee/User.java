@@ -1,5 +1,7 @@
 package com.example.android.bee;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -125,6 +127,56 @@ public class User {
             //Toast.makeText(this, "Unable to find difference", Toast.LENGTH_SHORT).show();
         }
         return result + 1;
+    }
+
+    public double calculateHappinessPoint() {
+        double doPoint, sePoint, enPoint, oxPoint, haPoint;
+
+        if((getDopamine().get(getDayCounter()-1))*(0.0667)>=100 ) {
+            doPoint = 100;
+        } else if ((getDopamine().get(getDayCounter()-1))*(0.0667)<=0){
+            doPoint = 0;
+        } else {
+            doPoint = (getDopamine().get(getDayCounter()-1))*(0.0667);
+            doPoint = BigDecimal.valueOf(doPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        }
+
+        if((getEndorphins().get(getDayCounter()-1))*(0.16667)>=100 ) {
+            enPoint = 100;
+        } else if ((getEndorphins().get(getDayCounter()-1))*(0.16667)<=0){
+            enPoint = 0;
+        } else {
+            enPoint = (getEndorphins().get(getDayCounter()-1))*(0.16667);
+            enPoint = BigDecimal.valueOf(enPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        }
+
+        if((getSerotonin().get(getDayCounter()-1))*(0.05)>=100 ) {
+            sePoint = 100;
+        } else if ((getSerotonin().get(getDayCounter()-1))*(0.05)<=0){
+            sePoint = 0;
+        } else {
+            sePoint = (getSerotonin().get(getDayCounter()-1))*(0.05);
+            sePoint = BigDecimal.valueOf(sePoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        }
+
+        if((getOxytocin().get(getDayCounter()-1))*(0.09234)>=100 ) {
+            oxPoint = 100;
+        } else if ((getOxytocin().get(getDayCounter()-1))*(0.09234)<=0){
+            oxPoint = 0;
+        } else {
+            oxPoint = (getOxytocin().get(getDayCounter()-1))*(0.09234);
+            oxPoint = BigDecimal.valueOf(oxPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        }
+
+        haPoint = (doPoint/4) + (sePoint/4) + (enPoint/4) + (oxPoint/4);
+        haPoint = BigDecimal.valueOf(haPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        if (haPoint<=0) {
+            haPoint = 0;
+            return haPoint;
+        }
+        else {
+            return haPoint;
+        }
     }
 
     public int getDayCounter() {

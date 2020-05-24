@@ -78,15 +78,19 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
         _forgot_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAuth.sendPasswordResetEmail(_emailText.getText().toString())
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                Log.d(TAG, "Email sent.");
+                if(validateForgotPassword()) {
+                    mAuth.sendPasswordResetEmail(_emailText.getText().toString())
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(LoginActivity.this, "Email sent to "+_emailText.getText().toString(),
+                                        Toast.LENGTH_SHORT).show();
+                                    Log.d(TAG, "Email sent.");
+                                }
                             }
-                        }
-                    });
+                        });
+                }
             }
         });
 
@@ -203,6 +207,20 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
             _passwordText.setError(null);
         }
 
+        return valid;
+    }
+
+    public boolean validateForgotPassword() {
+        boolean valid = true;
+        String email = _emailText.getText().toString();
+
+        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            _emailText.setError("Enter a valid email address");
+            Toast.makeText(getBaseContext(), "Enter a valid email address", Toast.LENGTH_LONG).show();
+            valid = false;
+        } else {
+            _emailText.setError(null);
+        }
         return valid;
     }
 }

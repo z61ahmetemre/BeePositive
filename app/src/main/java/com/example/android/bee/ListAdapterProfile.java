@@ -45,9 +45,14 @@ public class ListAdapterProfile extends RecyclerView.Adapter {
             gender.setText("Male");
         }
         mail.setText(user.getUserID());
-        point.setText(user.getHappinessPercentage() + "");
         date.setText(user.getRegisrationDate());
 
+        user.getHappinessHistory().set(user.getDayCounter()-1, user.calculateHappinessPoint());
+        mDatabase.child("users").child(mAuth.getUid()).child("happinessHistory").setValue(user.getHappinessHistory());
+        if(user.getHappinessHistory().get(user.getDayCounter()-1) > 100)
+            point.setText(user.getHappinessHistory().get(user.getDayCounter()-1) + "+ %");
+        else
+            point.setText(user.getHappinessHistory().get(user.getDayCounter()-1) + " %");
     }
 
     @Override
