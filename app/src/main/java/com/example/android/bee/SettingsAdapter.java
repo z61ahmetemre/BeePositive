@@ -17,6 +17,7 @@ import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,6 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
+import static android.support.constraint.Constraints.TAG;
 
 public class SettingsAdapter extends RecyclerView.Adapter {
     View view;
@@ -51,8 +53,8 @@ public class SettingsAdapter extends RecyclerView.Adapter {
         final RadioButton female = view.findViewById(R.id.s_female);
         final RadioButton other = view.findViewById(R.id.s_other);
 
-        Button s_name = view.findViewById(R.id.sb_user_name);
-        Button s_age  = view.findViewById(R.id.sb_user_age);
+        final Button s_name = view.findViewById(R.id.sb_user_name);
+        final Button s_age  = view.findViewById(R.id.sb_user_age);
 
         int sex = user.getSex();
 
@@ -71,6 +73,8 @@ public class SettingsAdapter extends RecyclerView.Adapter {
             public void onClick(View view) {
                 user.setName(String.valueOf(name.getText()));
                 mDatabase.child("users").child(mAuth.getUid()).child("name").setValue(String.valueOf(name.getText()));
+                name.setText("");
+                name.setHint(user.getName());
             }
         });
 
@@ -79,8 +83,36 @@ public class SettingsAdapter extends RecyclerView.Adapter {
             public void onClick(View view) {
                 user.setName(String.valueOf(age.getText()));
                 mDatabase.child("users").child(mAuth.getUid()).child("age").setValue(Integer.parseInt(String.valueOf(age.getText())));
+                age.setText("");
+                age.setHint(user.getAge());
             }
         });
+
+        final EditText pass = view.findViewById(R.id.s_user_password);
+        pass.setHint("New Password");
+
+        Button savePass = view.findViewById(R.id.sb_user_password);
+        savePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                FirebaseUser firebaseUser = mAuth.getInstance().getCurrentUser();
+                firebaseUser.updatePassword(String.valueOf(pass.getText()))
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                user.setPassword(String.valueOf(pass.getText()));
+                                mDatabase.child("users").child(mAuth.getUid()).child("password").setValue(String.valueOf(pass.getText()));
+                                Log.d(TAG, "User password updated.");
+                                pass.setText("");
+                                Toast.makeText(view.getContext(), "Password is changed.",
+                                    Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+            }
+        });
+
 
         RadioGroup rg = view.findViewById(R.id.s_sexes);
 
