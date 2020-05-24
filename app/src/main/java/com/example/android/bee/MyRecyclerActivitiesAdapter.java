@@ -63,13 +63,13 @@ public class MyRecyclerActivitiesAdapter extends RecyclerView.Adapter {
                                                  public void onClick(View view) {
                                                      for (int i = 0; i < 18; i++) {
                                                          if (checkBox[i].isChecked()) {
-                                                             user.getDopamine().add(user.getDayCounter(), food_dopamine[i]);
+                                                             user.getDopamine().set(user.getDayCounter() - 1, user.getDopamine().get(user.getDayCounter() - 1) + food_dopamine[i]);
                                                              mDatabase.child("users").child(mAuth.getUid()).child("dopamine").setValue(user.getDopamine());
-                                                             user.getSerotonin().add(user.getDayCounter(), food_serotonin[i]);
+                                                             user.getSerotonin().set(user.getDayCounter() - 1, user.getSerotonin().get(user.getDayCounter() - 1) + food_serotonin[i]);
                                                              mDatabase.child("users").child(mAuth.getUid()).child("serotonin").setValue(user.getSerotonin());
-                                                             user.getOxytocin().add(user.getDayCounter(), food_oxytocin[i]);
+                                                             user.getOxytocin().set(user.getDayCounter() - 1, user.getOxytocin().get(user.getDayCounter() - 1) + food_oxytocin[i]);
                                                              mDatabase.child("users").child(mAuth.getUid()).child("oxytocin").setValue(user.getOxytocin());
-                                                             user.getEndorphins().add(user.getDayCounter(), food_endorphins[i]);
+                                                             user.getEndorphins().set(user.getDayCounter() - 1, user.getEndorphins().get(user.getDayCounter() - 1) + food_endorphins[i]);
                                                              mDatabase.child("users").child(mAuth.getUid()).child("endorphins").setValue(user.getEndorphins());
                                                          }
                                                      }

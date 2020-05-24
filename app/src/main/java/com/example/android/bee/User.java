@@ -83,7 +83,7 @@ public class User {
     }
 
     public boolean checkWeeklyTestExist() {
-        if(dayCounter % 7 == 0)
+        if((dayCounter % 7 == 0) || (dayCounter < 7 && weekCounter == 0))
             return true;
         else
             return false;

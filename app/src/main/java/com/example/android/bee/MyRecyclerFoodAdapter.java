@@ -66,13 +66,13 @@ public class MyRecyclerFoodAdapter extends RecyclerView.Adapter {
 
                                                for (int i = 0; i < 19; i++) {
                                                    if (checkBoxes[i].isChecked()) {
-                                                       user.getDopamine().add(user.getDayCounter(), food_Dopamine[i]);
+                                                       user.getDopamine().set(user.getDayCounter() - 1, user.getDopamine().get(user.getDayCounter() - 1) + food_Dopamine[i]);
                                                        mDatabase.child("users").child(mAuth.getUid()).child("dopamine").setValue(user.getDopamine());
-                                                       user.getSerotonin().add(user.getDayCounter(), food_Serotonin[i]);
+                                                       user.getSerotonin().set(user.getDayCounter() - 1, user.getSerotonin().get(user.getDayCounter() - 1) + food_Serotonin[i]);
                                                        mDatabase.child("users").child(mAuth.getUid()).child("serotonin").setValue(user.getSerotonin());
-                                                       user.getOxytocin().add(user.getDayCounter(), food_Oxytocin[i]);
+                                                       user.getOxytocin().set(user.getDayCounter() - 1, user.getOxytocin().get(user.getDayCounter() - 1) + food_Oxytocin[i]);
                                                        mDatabase.child("users").child(mAuth.getUid()).child("oxytocin").setValue(user.getOxytocin());
-                                                       user.getEndorphins().add(user.getDayCounter(), food_Endorphine[i]);
+                                                       user.getEndorphins().set(user.getDayCounter() - 1, user.getEndorphins().get(user.getDayCounter() - 1) + food_Endorphine[i]);
                                                        mDatabase.child("users").child(mAuth.getUid()).child("endorphins").setValue(user.getEndorphins());
                                                    }
                                                }

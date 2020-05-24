@@ -29,6 +29,19 @@ public class Test {
         date = null;
     }
 
+    public Test() {
+        questions = new ArrayList<>();
+        for (int i = 0; i < 21; i++) {
+            if (i < 15)
+                questions.add(new ChoiceQuestion());
+            else
+                questions.add(new BlankQuestion());
+        }
+        dailyQuestions = new ArrayList<>();
+        for (int i = 0; i < 3; i++)
+            dailyQuestions.add(new BlankQuestion());
+    }
+
     public List<BlankQuestion> getDailyQuestions() {
         return dailyQuestions;
     }
@@ -42,12 +55,7 @@ public class Test {
     }
 
     public void setQuestions(List<Questions> q) {
-        for (int i = 0; i < 21; i++) {
-            if (i < 15)
-                ((ChoiceQuestion) questions.get(i)).setAnswer(((ChoiceQuestion) q.get(i)).getAnswer());
-            else
-                ((BlankQuestion) questions.get(i)).setAnswer(((BlankQuestion) q.get(i)).getAnswer());
-        }
+        this.questions = q;
     }
 
     public void setAnswerChoices(int no, int answer) {
@@ -60,5 +68,13 @@ public class Test {
 
     public void setDailyAnswer(int no, String answer) {
         dailyQuestions.get(no).setAnswer(answer);
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

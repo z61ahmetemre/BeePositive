@@ -4,7 +4,7 @@ public class BlankQuestion extends Questions {
     String answer;
 
     BlankQuestion() {
-        answer = null;
+        answer = "";
     }
 
     /**
