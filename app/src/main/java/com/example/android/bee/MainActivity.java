@@ -255,7 +255,7 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_logout) {
-            FirebaseAuth.getInstance().signOut();
+            mAuth.signOut();
             user = null;
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivityForResult(intent, 0);

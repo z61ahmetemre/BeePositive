@@ -1,17 +1,31 @@
 package com.example.android.bee;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 public class SettingsAdapter extends RecyclerView.Adapter {
     View view;
@@ -90,7 +104,72 @@ public class SettingsAdapter extends RecyclerView.Adapter {
             }
         });
 
+        Button delete = view.findViewById(R.id.delete_data_button);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LayoutInflater inflater = (LayoutInflater) view.getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                final View popupView = inflater.inflate(R.layout.popup_delete_warning, null);
+                TextView t = popupView.findViewById(R.id.popup_warning);
+                t.setText("Deleting account is permanent and you cannot get it back! Are you sure?");
+                // create the popup window
+                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+                boolean focusable = true; // lets taps outside the popup also dismiss it
+                final PopupWindow popupWindow = new PopupWindow(popupView, width, height, false);
 
+                // show the popup window
+                // which view you pass in doesn't matter, it is only used for the window tolken
+                popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+                Button yes = popupView.findViewById(R.id.yes_delete);
+                yes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        deleteUser();
+                        Intent intent = new Intent(view.getContext(), LoginActivity.class);
+                        ((Activity)view.getContext()).startActivityForResult(intent, 0);
+                        return;
+                    }
+                });
+                Button no = popupView.findViewById(R.id.no_delete);
+                no.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        popupWindow.dismiss();
+                        return;
+                    }
+                });
+                // dismiss the popup window when touched
+//                popupView.setOnTouchListener(new View.OnTouchListener() {
+//                    @Override
+//                    public boolean onTouch(View v, MotionEvent event) {
+//
+//                        return true;
+//                    }
+//                });
+            }
+        });
+
+
+    }
+
+    public void deleteUser() {
+        FirebaseUser firebaseUser = mAuth.getInstance().getCurrentUser();
+        final String uid = mAuth.getUid();
+        firebaseUser.delete()
+            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        mDatabase.child("users").child(uid).setValue(null);
+                        mAuth.signOut();
+                        user.setUpdater("-");
+
+                        Log.d("USER DELETED:", "User account deleted.");
+                    }
+                }
+            });
     }
 
     @Override

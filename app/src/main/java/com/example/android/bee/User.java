@@ -104,21 +104,23 @@ public class User {
     public int calculateDayCounter() {
         int result = -1;
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            String theDate = sdf.format(new Date());
-            String CurrentDate= theDate;
-            String FinalDate= regisrationDate;
-            Date date1;
-            Date date2;
-            SimpleDateFormat dates = new SimpleDateFormat("dd/MM/yyyy");
-            date1 = dates.parse(CurrentDate);
-            date2 = dates.parse(FinalDate);
-            long difference = Math.abs(date1.getTime() - date2.getTime());
-            long differenceDates = difference / (24 * 60 * 60 * 1000);
-            //dayCounter = (int) differenceDates;
-            result = (int) differenceDates;
-            //String dayDifference = Long.toString(differenceDates);
-            //textView.setText("The difference between two dates is " + dayDifference + " days");
+            while (result < 0) {
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                String theDate = sdf.format(new Date());
+                String CurrentDate = theDate;
+                String FinalDate = regisrationDate;
+                Date date1;
+                Date date2;
+                SimpleDateFormat dates = new SimpleDateFormat("dd/MM/yyyy");
+                date1 = dates.parse(CurrentDate);
+                date2 = dates.parse(FinalDate);
+                long difference = Math.abs(date1.getTime() - date2.getTime());
+                long differenceDates = difference / (24 * 60 * 60 * 1000);
+                //dayCounter = (int) differenceDates;
+                result = (int) differenceDates;
+                //String dayDifference = Long.toString(differenceDates);
+                //textView.setText("The difference between two dates is " + dayDifference + " days");
+            }
         } catch (Exception exception) {
             //Toast.makeText(this, "Unable to find difference", Toast.LENGTH_SHORT).show();
         }
