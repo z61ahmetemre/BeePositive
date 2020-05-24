@@ -42,6 +42,9 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
     Button _loginButton;
     @BindView(R.id.link_signup)
     TextView _signupLink;
+    @BindView(R.id.forgot_pass)
+    TextView _forgot_password;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,6 +74,23 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
                 startActivityForResult(intent, REQUEST_SIGNUP);
             }
         });
+
+        _forgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.sendPasswordResetEmail(_emailText.getText().toString())
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Log.d(TAG, "Email sent.");
+                            }
+                        }
+                    });
+            }
+        });
+
+
     }
 
     public void login() {
