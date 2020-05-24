@@ -154,7 +154,6 @@ public class SignupActivity extends AppCompatActivity implements Serializable, O
             user.setSex(0);
         else if (_noGenderButton.isChecked())
             user.setSex(-1);
-        user.setIsRegistered(true);
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String date = sdf.format(new Date());
