@@ -50,6 +50,8 @@
                             android:layout_weight="1"
                             android:text="Name "
                             android:textAlignment="textStart"
+                            android:layout_margin="8dp"
+                            android:padding="5dp"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -64,6 +66,8 @@
                             android:layout_width="5dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_margin="8dp"
+                            android:padding="5dp"
                             android:background="@drawable/btn_rounded"
                             android:textColor="@color/whiteTextColor"
                             android:text="SAVE"/>
@@ -87,6 +91,8 @@
                             android:layout_weight="1"
                             android:text="Age "
                             android:textAlignment="textStart"
+                            android:layout_margin="8dp"
+                            android:padding="5dp"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -101,6 +107,8 @@
                             android:layout_width="5dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_margin="8dp"
+                            android:padding="5dp"
                             android:background="@drawable/btn_rounded"
                             android:textColor="@color/whiteTextColor"
                             android:text="SAVE"/>
@@ -124,6 +132,8 @@
                             android:layout_weight="1"
                             android:text="Password "
                             android:textAlignment="textStart"
+                            android:layout_margin="8dp"
+                            android:padding="5dp"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -138,6 +148,8 @@
                             android:layout_width="5dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_margin="8dp"
+                            android:padding="5dp"
                             android:background="@drawable/btn_rounded"
                             android:textColor="@color/whiteTextColor"
                             android:text="SAVE"/>
@@ -155,16 +167,18 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
                         <TextView
-                            android:layout_width="60dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Gender"
+                            android:layout_margin="8dp"
+                            android:padding="5dp"
                             android:textAlignment="textStart"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                         <RadioGroup
                             android:id="@+id/s_sexes"
-                            android:layout_width="100dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="horizontal">
@@ -173,16 +187,22 @@
                                 android:id="@+id/s_male"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:padding="5dp"
                                 android:text="Male" />
 
                             <RadioButton
                                 android:id="@+id/s_female"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:padding="5dp"
                                 android:text="Female" />
 
                             <RadioButton
                                 android:id="@+id/s_other"
+                                android:layout_margin="8dp"
+                                android:padding="5dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Other" />
@@ -227,8 +247,11 @@
                             android:id="@+id/switch_notification"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
                             android:layout_weight="1"
-                            android:text="Notifications" />
+                            android:padding="5dp"
+                            android:text="Notifications"
+                            android:textSize="14sp" />
 
 
                     </LinearLayout>
@@ -270,19 +293,23 @@
                         <TextView
                             android:layout_width="70dp"
                             android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
                             android:layout_weight="1"
+                            android:padding="5dp"
                             android:text="Delete account"
                             android:textAlignment="textStart"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
 
                         <Button
                             android:id="@+id/delete_data_button"
                             android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_margin="8dp"
+                            android:padding="5dp"
                             android:background="@drawable/delete_settings"
                             android:textColor="@color/whiteTextColor"
-                            android:padding="5dp"
                             android:text="DELETE" />
 
 

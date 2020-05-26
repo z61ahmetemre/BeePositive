@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -10,72 +11,98 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="#fff7ff"
+            app:cardCornerRadius="15dp">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/daily_question_1"
-                android:textSize="18sp" />
+                android:orientation="vertical"
+                android:padding="8dp">
 
-            <EditText
-                android:id="@+id/daily_answer_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Please write here" />
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/daily_question_1"
+                    android:textSize="18sp" />
 
-        <LinearLayout
+                <EditText
+                    android:id="@+id/daily_answer_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Please write here" />
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="#fff7ff"
+            app:cardCornerRadius="15dp">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/daily_question_2"
-                android:textSize="18sp" />
+                android:orientation="vertical"
+                android:padding="8dp">
 
-            <EditText
-                android:id="@+id/daily_answer_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Please write here" />
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/daily_question_2"
+                    android:textSize="18sp" />
 
-        <LinearLayout
+                <EditText
+                    android:id="@+id/daily_answer_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Please write here" />
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="#fff7ff"
+            app:cardCornerRadius="15dp">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/daily_question_3"
-                android:textSize="18sp" />
+                android:orientation="vertical"
+                android:padding="8dp">
 
-            <EditText
-                android:id="@+id/daily_answer_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Please write here" />
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/daily_question_3"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/daily_answer_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Please write here" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
     </LinearLayout>
 
     <Button
         android:id="@+id/submit_button_daily"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SUBMIT"
         android:background="@drawable/btn_rounded"
-        android:textColor="@color/whiteTextColor"/>
+        android:text="SUBMIT"
+        android:textColor="@color/whiteTextColor" />
 </LinearLayout>

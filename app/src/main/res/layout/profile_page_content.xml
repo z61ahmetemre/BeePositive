@@ -1,244 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:cardBackgroundColor="#fff7ff"
+        app:cardCornerRadius="15dp">
 
-        <android.support.v7.widget.CardView
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="8dp"
+            android:padding="5dp"
+            app:srcCompat="@drawable/avatar_unisex" />
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:cardBackgroundColor="#fff7ff"
+        app:cardCornerRadius="15dp">
+
+        <TextView
+            android:id="@+id/p_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:cardBackgroundColor="#fff7ff"
+        app:cardCornerRadius="15dp">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            app:cardBackgroundColor="#A9AA66CC"
-            app:cardCornerRadius="3dp">
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center_horizontal"
-                android:padding="5dp"
-                app:srcCompat="@drawable/avatar_unisex" />
-        </android.support.v7.widget.CardView>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@color/whiteTextColor"
-            android:padding="1dp" />
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:cardBackgroundColor="#A9AA66CC"
-            app:cardCornerRadius="2dp"
-            app:contentPadding="5dp">
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/p_user_name"
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="TextView" />
-        </android.support.v7.widget.CardView>
+                android:layout_margin="8dp"
+                android:layout_weight="2"
+                android:text="Age "
+                android:textAlignment="viewStart"
+                android:textStyle="bold" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@color/whiteTextColor"
-            android:padding="1dp" />
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:cardBackgroundColor="#A9AA66CC"
-            app:cardCornerRadius="2dp"
-            app:contentPadding="5dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/p_user_age"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_margin="8dp"
+                android:layout_weight="2"
+                android:text="TextView"
+                android:textAlignment="textStart" />
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Age "
-                    android:textAlignment="viewStart"
-                    android:textStyle="bold" />
+    </android.support.v7.widget.CardView>
 
-                <TextView
-                    android:id="@+id/p_user_age"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="TextView"
-                    android:textAlignment="textStart" />
-            </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:cardBackgroundColor="#fff7ff"
+        app:cardCornerRadius="15dp">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@color/whiteTextColor"
-            android:padding="1dp"
-            android:paddingTop="3dp"
-            android:paddingBottom="3dp" />
-
-        <android.support.v7.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardBackgroundColor="#A9AA66CC"
-            app:cardCornerRadius="2dp"
-            app:contentPadding="5dp">
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="2"
+                android:text="Gender"
+                android:textAlignment="viewStart"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Gender"
-                    android:textAlignment="viewStart"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/p_user_gender"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="2"
+                android:text="TextView"
+                android:textAlignment="textStart" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/p_user_gender"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="TextView"
-                    android:textAlignment="textStart" />
-            </LinearLayout>
+    </android.support.v7.widget.CardView>
 
-        </android.support.v7.widget.CardView>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@color/whiteTextColor"
-            android:padding="1dp"
-            android:paddingTop="3dp"
-            android:paddingBottom="3dp" />
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:cardBackgroundColor="#fff7ff"
+        app:cardCornerRadius="15dp">
 
-        <android.support.v7.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardBackgroundColor="#A9AA66CC"
-            app:cardCornerRadius="2dp"
-            app:contentPadding="5dp">
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:text="Mail"
+                android:textAlignment="viewStart"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Mail"
-                    android:textAlignment="viewStart"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/p_user_id"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textAlignment="textStart" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/p_user_id"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="TextView"
-                    android:textAlignment="textStart" />
-            </LinearLayout>
+    </android.support.v7.widget.CardView>
 
-        </android.support.v7.widget.CardView>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@color/whiteTextColor"
-            android:padding="1dp"
-            android:paddingTop="3dp"
-            android:paddingBottom="3dp" />
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:cardBackgroundColor="#fff7ff"
+        app:cardCornerRadius="15dp">
 
-        <android.support.v7.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardBackgroundColor="#A9AA66CC"
-            app:cardCornerRadius="2dp"
-            app:contentPadding="5dp">
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:text="Happiness Point "
+                android:textAlignment="viewStart"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Happiness Point "
-                    android:textAlignment="viewStart"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/p_user_hap_point"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textAlignment="textStart" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/p_user_hap_point"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="TextView"
-                    android:textAlignment="textStart" />
-            </LinearLayout>
+    </android.support.v7.widget.CardView>
 
-        </android.support.v7.widget.CardView>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@color/whiteTextColor"
-            android:paddingTop="20dp"
-            android:paddingBottom="8dp" />
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:cardBackgroundColor="#fff7ff"
+        app:cardCornerRadius="15dp">
 
-        <android.support.v7.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardBackgroundColor="#A9AA66CC"
-            app:cardCornerRadius="2dp"
-            app:contentPadding="5dp">
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Registration Date "
+                android:layout_margin="8dp"
+                android:textAlignment="viewStart"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Registration Date "
-                    android:textAlignment="viewStart"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/p_user_reg_date"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textAlignment="textStart" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/p_user_reg_date"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="TextView"
-                    android:textAlignment="textStart" />
-            </LinearLayout>
+    </android.support.v7.widget.CardView>
 
-        </android.support.v7.widget.CardView>
-
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>
