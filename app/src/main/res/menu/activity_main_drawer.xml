@@ -41,6 +41,10 @@
             android:icon="@drawable/icons8_line_chart_50"
             android:title="@string/menu_progress" />
         <item
+            android:id="@+id/nav_analysis"
+            android:icon="@drawable/icons8_combo_chart_50_2"
+            android:title="Analysis" />
+        <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/icons8_settings_50"
             android:title="@string/menu_settings" />

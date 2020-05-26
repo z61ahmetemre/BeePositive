@@ -19,5 +19,6 @@ public class ChoiceQuestion extends Questions {
      */
     public void setAnswer(int theAnswer) {
         answer = theAnswer;
+        super.answerC = theAnswer;
     }
 }

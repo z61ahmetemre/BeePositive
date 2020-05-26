@@ -7,6 +7,9 @@ public class Test {
     List<Questions> questions;
     List<BlankQuestion> dailyQuestions;
     String date;
+    List<Double> nlpResultsPositive;
+    List<Double> nlpResultsNegative;
+    List<Double> nlpResultsChoices;
 
     /**
      * if type 0: daily test
@@ -27,6 +30,18 @@ public class Test {
                 questions.add(i, new BlankQuestion());
         }
         date = null;
+        nlpResultsPositive = new ArrayList<>();
+        for(int i = 0; i < 6; i++) {
+            nlpResultsPositive.add(-1.0);
+        }
+        nlpResultsNegative = new ArrayList<>();
+        for(int i = 0; i < 6; i++) {
+            nlpResultsNegative.add(-1.0);
+        }
+        nlpResultsChoices = new ArrayList<>();
+        for(int i = 0; i < 15; i++) {
+            nlpResultsChoices.add(-1.0);
+        }
     }
 
     public Test() {
@@ -40,6 +55,42 @@ public class Test {
         dailyQuestions = new ArrayList<>();
         for (int i = 0; i < 3; i++)
             dailyQuestions.add(new BlankQuestion());
+        nlpResultsPositive = new ArrayList<>();
+        for(int i = 0; i < 6; i++) {
+            nlpResultsPositive.add(-1.0);
+        }
+        nlpResultsNegative = new ArrayList<>();
+        for(int i = 0; i < 6; i++) {
+            nlpResultsNegative.add(-1.0);
+        }
+        nlpResultsChoices = new ArrayList<>();
+        for(int i = 0; i < 15; i++) {
+            nlpResultsChoices.add(-1.0);
+        }
+    }
+
+    public List<Double> getNlpResultsChoices() {
+        return nlpResultsChoices;
+    }
+
+    public void setNlpResultsChoices(List<Double> nlpResultsChoices) {
+        this.nlpResultsChoices = nlpResultsChoices;
+    }
+
+    public List<Double> getNlpResultsPositive() {
+        return nlpResultsPositive;
+    }
+
+    public void setNlpResultsPositive(List<Double> nlpResultsPositive) {
+        this.nlpResultsPositive = nlpResultsPositive;
+    }
+
+    public List<Double> getNlpResultsNegative() {
+        return nlpResultsNegative;
+    }
+
+    public void setNlpResultsNegative(List<Double> nlpResultsNegative) {
+        this.nlpResultsNegative = nlpResultsNegative;
     }
 
     public List<BlankQuestion> getDailyQuestions() {

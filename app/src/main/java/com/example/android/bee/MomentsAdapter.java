@@ -15,7 +15,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
 public class MomentsAdapter extends RecyclerView.Adapter {
     //View view;
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -56,9 +55,9 @@ public class MomentsAdapter extends RecyclerView.Adapter {
 
         public ListViewHolder(View itemView) {
             super(itemView);
-            for(int k = 0; k < 12; k++)
+            for (int k = 0; k < 12; k++)
                 activities[k] = new ImageView(App.getContext());
-            emoji    = itemView.findViewById(R.id.m_emojiImage);
+            emoji = itemView.findViewById(R.id.m_emojiImage);
             activities[0] = itemView.findViewById(R.id.m_work);
             activities[1] = itemView.findViewById(R.id.m_family);
             activities[2] = itemView.findViewById(R.id.m_friends);
@@ -74,21 +73,23 @@ public class MomentsAdapter extends RecyclerView.Adapter {
             textView = itemView.findViewById(R.id.m_text);
 
         }
+
         int theMoment = -1;
+
         public void bindView(int position) {
             String str = user.getMoments().get(position).getEmoji();
-            if(str.equals("really terrible"))
+            if (str.equals("really terrible"))
                 emoji.setImageResource(picturePath[0]);
-            else if(str.equals("somewhat bad"))
+            else if (str.equals("somewhat bad"))
                 emoji.setImageResource(picturePath[1]);
-            else if(str.equals("completely okay"))
+            else if (str.equals("completely okay"))
                 emoji.setImageResource(picturePath[2]);
-            else if(str.equals("pretty good"))
+            else if (str.equals("pretty good"))
                 emoji.setImageResource(picturePath[3]);
-            else if(str.equals("super awesome"))
+            else if (str.equals("super awesome"))
                 emoji.setImageResource(picturePath[4]);
-            for(int i = 0; i < 12; i++) {
-                if(user.getMoments().get(position).getActivities().get(i) == false)
+            for (int i = 0; i < 12; i++) {
+                if (user.getMoments().get(position).getActivities().get(i) == false)
                     activities[i].setVisibility(View.GONE);
             }
             textView.setText(user.getMoments().get(position).getTheMoment());
@@ -98,7 +99,7 @@ public class MomentsAdapter extends RecyclerView.Adapter {
         }
 
         public void onClick(View view) {
-            if(user.getMomentCounter() > 1) {
+            if (user.getMomentCounter() > 1) {
                 user.getMoments().remove(theMoment);
                 user.setMomentCounter(user.getMomentCounter() - 1);
                 mDatabase.child("users").child(mAuth.getUid()).child("momentCounter").setValue(user.getMomentCounter());
@@ -110,8 +111,8 @@ public class MomentsAdapter extends RecyclerView.Adapter {
                 fragmentTransaction.replace(R.id.your_placeholder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
-            } else if(user.getMomentCounter() == 1) {
-                user.getMoments().set(0,new Moment());
+            } else if (user.getMomentCounter() == 1) {
+                user.getMoments().set(0, new Moment());
                 user.setMomentCounter(user.getMomentCounter() - 1);
                 mDatabase.child("users").child(mAuth.getUid()).child("momentCounter").setValue(user.getMomentCounter());
                 mDatabase.child("users").child(mAuth.getUid()).child("moments").setValue(user.getMoments());

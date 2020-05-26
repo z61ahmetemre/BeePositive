@@ -19,5 +19,6 @@ public class BlankQuestion extends Questions {
      */
     public void setAnswer(String theAnswer) {
         answer = theAnswer;
+        super.answerB = theAnswer;
     }
 }

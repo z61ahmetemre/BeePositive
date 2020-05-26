@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -37,7 +38,7 @@ public class ListAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         ((ListViewHolder) viewHolder).bindView(i);
-        final Button submit = view.findViewById(R.id.submit_button);
+        final Button submit = view.findViewById(R.id.submit_button_weekly);
         final RadioButton[][] choices = new RadioButton[15][5];
 
         RadioButton rb = new RadioButton(App.getContext());
@@ -143,53 +144,91 @@ public class ListAdapter extends RecyclerView.Adapter {
         final EditText a19 = view.findViewById(R.id.answer_19);
         final EditText a20 = view.findViewById(R.id.answer_20);
         final EditText a21 = view.findViewById(R.id.answer_21);
-
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Test test = new Test(1);
-
-                for (int i = 0; i < 15; i++) {
-                    if (choices[i][0].isChecked()) {
-                        test.setAnswerChoices(i, 1);
-                    } else if (choices[i][1].isChecked()) {
-                        test.setAnswerChoices(i, 2);
-                    } else if (choices[i][2].isChecked()) {
-                        test.setAnswerChoices(i, 3);
-                    } else if (choices[i][3].isChecked()) {
-                        test.setAnswerChoices(i, 4);
-                    } else if (choices[i][4].isChecked()) {
-                        test.setAnswerChoices(i, 5);
-                    }
-                }
-
-                test.setAnswerBlank(15, String.valueOf(a16.getText()));
-                test.setAnswerBlank(16, String.valueOf(a17.getText()));
-                test.setAnswerBlank(17, String.valueOf(a18.getText()));
-                test.setAnswerBlank(18, String.valueOf(a19.getText()));
-                test.setAnswerBlank(19, String.valueOf(a20.getText()));
-                test.setAnswerBlank(20, String.valueOf(a21.getText()));
-
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                String date = sdf.format(new Date());
-                test.date = date;
-                user.addWeeklyTests(test);
-                user.setWeekCounter(user.getWeekCounter() + 1);
-                String index = (user.getWeekCounter() -  1) + "";
-                mDatabase.child("users").child(mAuth.getUid()).child("weekCounter").setValue(user.getWeekCounter());
-                mDatabase.child("users").child(mAuth.getUid()).child("weeklyTests").child(index).setValue(test);
-                //mDatabase.child("wtests").child(mAuth.getUid() + "-W" + user.getWeekCounter()).setValue(test);
-                submit.setClickable(false);
-
-                AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                activity.getSupportActionBar().setTitle("My Profile");
-                ProfileFragment profileFragment = new ProfileFragment();
-                FragmentTransaction fragmentTransaction = activity.getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.your_placeholder, profileFragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+        /*RadioGroup g1 = view.findViewById(R.id.choice_group_1);
+        RadioGroup g2 = view.findViewById(R.id.choice_group_2);
+        RadioGroup g3 = view.findViewById(R.id.choice_group_3);
+        RadioGroup g4 = view.findViewById(R.id.choice_group_4);
+        RadioGroup g5 = view.findViewById(R.id.choice_group_5);
+        RadioGroup g6 = view.findViewById(R.id.choice_group_6);
+        RadioGroup g7 = view.findViewById(R.id.choice_group_7);
+        RadioGroup g8 = view.findViewById(R.id.choice_group_8);
+        RadioGroup g9 = view.findViewById(R.id.choice_group_9);
+        RadioGroup g10 = view.findViewById(R.id.choice_group_10);
+        RadioGroup g11 = view.findViewById(R.id.choice_group_11);
+        RadioGroup g12 = view.findViewById(R.id.choice_group_12);
+        RadioGroup g13 = view.findViewById(R.id.choice_group_13);
+        RadioGroup g14 = view.findViewById(R.id.choice_group_14);
+        RadioGroup g15 = view.findViewById(R.id.choice_group_15);
+        if( !String.valueOf(a16.getText()).equals("") &&
+            !String.valueOf(a17.getText()).equals("") &&
+            !String.valueOf(a18.getText()).equals("") &&
+            !String.valueOf(a19.getText()).equals("") &&
+            !String.valueOf(a20.getText()).equals("") &&
+            String.valueOf(a21.getText()).length() > 0 &&
+            /*g1.getCheckedRadioButtonId() != -1 &&
+            g2.getCheckedRadioButtonId() != -1 &&
+            g3.getCheckedRadioButtonId() != -1 &&
+            g4.getCheckedRadioButtonId() != -1 &&
+            g5.getCheckedRadioButtonId() != -1 &&
+            g6.getCheckedRadioButtonId() != -1 &&
+            g7.getCheckedRadioButtonId() != -1 &&
+            g8.getCheckedRadioButtonId() != -1 &&
+            g9.getCheckedRadioButtonId() != -1 &&
+            g10.getCheckedRadioButtonId() != -1 &&
+            g11.getCheckedRadioButtonId() != -1 &&
+            g12.getCheckedRadioButtonId() != -1 &&
+            g13.getCheckedRadioButtonId() != -1 &&
+            g14.getCheckedRadioButtonId() != -1 &&
+            g15.getCheckedRadioButtonId() != -1     ) {
+            //submit.setClickable(true);
             }
-        });
+*/
+            submit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Test test = new Test(1);
+
+                    for (int i = 0; i < 15; i++) {
+                        if (choices[i][0].isChecked()) {
+                            test.setAnswerChoices(i, 1);
+                        } else if (choices[i][1].isChecked()) {
+                            test.setAnswerChoices(i, 2);
+                        } else if (choices[i][2].isChecked()) {
+                            test.setAnswerChoices(i, 3);
+                        } else if (choices[i][3].isChecked()) {
+                            test.setAnswerChoices(i, 4);
+                        } else if (choices[i][4].isChecked()) {
+                            test.setAnswerChoices(i, 5);
+                        }
+                    }
+
+                    test.setAnswerBlank(15, String.valueOf(a16.getText()));
+                    test.setAnswerBlank(16, String.valueOf(a17.getText()));
+                    test.setAnswerBlank(17, String.valueOf(a18.getText()));
+                    test.setAnswerBlank(18, String.valueOf(a19.getText()));
+                    test.setAnswerBlank(19, String.valueOf(a20.getText()));
+                    test.setAnswerBlank(20, String.valueOf(a21.getText()));
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    String date = sdf.format(new Date());
+                    test.date = date;
+                    user.addWeeklyTests(test);
+                    user.setWeekCounter(user.getWeekCounter() + 1);
+                    String index = (user.getWeekCounter() - 1) + "";
+                    mDatabase.child("users").child(mAuth.getUid()).child("weekCounter").setValue(user.getWeekCounter());
+                    mDatabase.child("users").child(mAuth.getUid()).child("weeklyTests").child(index).setValue(test);
+                    //mDatabase.child("wtests").child(mAuth.getUid() + "-W" + user.getWeekCounter()).setValue(test);
+                    submit.setClickable(false);
+
+                    AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                    activity.getSupportActionBar().setTitle("My Profile");
+                    ProfileFragment profileFragment = new ProfileFragment();
+                    FragmentTransaction fragmentTransaction = activity.getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.your_placeholder, profileFragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
+            });
 
     }
 

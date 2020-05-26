@@ -35,28 +35,28 @@ public class User {
 
     private User() {
         happinessHistory = new ArrayList<Double>();
-        for(int i = 0; i < 31; i++) {
-            happinessHistory.add(i,-1.0);
+        for (int i = 0; i < 31; i++) {
+            happinessHistory.add(i, -1.0);
         }
 
         dopamine = new ArrayList<Integer>();
-        for(int i = 0; i < 31; i++) {
-            dopamine.add(i,-1);
+        for (int i = 0; i < 31; i++) {
+            dopamine.add(i, -1);
         }
 
         serotonin = new ArrayList<Integer>();
-        for(int i = 0; i < 31; i++) {
-            serotonin.add(i,-1);
+        for (int i = 0; i < 31; i++) {
+            serotonin.add(i, -1);
         }
 
         endorphins = new ArrayList<Integer>();
-        for(int i = 0; i < 31; i++) {
-            endorphins.add(i,-1);
+        for (int i = 0; i < 31; i++) {
+            endorphins.add(i, -1);
         }
 
         oxytocin = new ArrayList<Integer>();
-        for(int i = 0; i < 31; i++) {
-            oxytocin.add(i,-1);
+        for (int i = 0; i < 31; i++) {
+            oxytocin.add(i, -1);
         }
 
         moments = new ArrayList<>();
@@ -66,7 +66,7 @@ public class User {
         Test d = new Test(0);
         Test w = new Test(1);
         dailyTests = new ArrayList<>();
-        weeklyTests= new ArrayList<>();
+        weeklyTests = new ArrayList<>();
         dailyTests.add(d);
         weeklyTests.add(w);
     }
@@ -78,14 +78,14 @@ public class User {
     }
 
     public boolean checkDailyTestExist() {
-        if(dayCounter > testCounter)
+        if (dayCounter > testCounter)
             return true;
         else
             return false;
     }
 
     public boolean checkWeeklyTestExist() {
-        if((dayCounter % 7 == 0) || (dayCounter < 7 && weekCounter == 0))
+        if ((dayCounter % 7 == 0) || (dayCounter < 7 && weekCounter == 0))
             return true;
         else
             return false;
@@ -105,8 +105,9 @@ public class User {
 
     public int calculateDayCounter() {
         int result = -1;
-        try {
-            while (result < 0) {
+
+            try {
+
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 String theDate = sdf.format(new Date());
                 String CurrentDate = theDate;
@@ -122,60 +123,63 @@ public class User {
                 result = (int) differenceDates;
                 //String dayDifference = Long.toString(differenceDates);
                 //textView.setText("The difference between two dates is " + dayDifference + " days");
+
+            } catch (Exception exception) {
+                //Toast.makeText(this, "Unable to find difference", Toast.LENGTH_SHORT).show();
             }
-        } catch (Exception exception) {
-            //Toast.makeText(this, "Unable to find difference", Toast.LENGTH_SHORT).show();
-        }
+
         return result + 1;
     }
 
     public double calculateHappinessPoint() {
         double doPoint, sePoint, enPoint, oxPoint, haPoint;
+        try {
+            if ((getDopamine().get(getDayCounter() - 1)) * (0.0667) >= 100) {
+                doPoint = 100;
+            } else if ((getDopamine().get(getDayCounter() - 1)) * (0.0667) <= 0) {
+                doPoint = 0;
+            } else {
+                doPoint = (getDopamine().get(getDayCounter() - 1)) * (0.0667);
+                doPoint = BigDecimal.valueOf(doPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            }
 
-        if((getDopamine().get(getDayCounter()-1))*(0.0667)>=100 ) {
-            doPoint = 100;
-        } else if ((getDopamine().get(getDayCounter()-1))*(0.0667)<=0){
-            doPoint = 0;
-        } else {
-            doPoint = (getDopamine().get(getDayCounter()-1))*(0.0667);
-            doPoint = BigDecimal.valueOf(doPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
-        }
+            if ((getEndorphins().get(getDayCounter() - 1)) * (0.16667) >= 100) {
+                enPoint = 100;
+            } else if ((getEndorphins().get(getDayCounter() - 1)) * (0.16667) <= 0) {
+                enPoint = 0;
+            } else {
+                enPoint = (getEndorphins().get(getDayCounter() - 1)) * (0.16667);
+                enPoint = BigDecimal.valueOf(enPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            }
 
-        if((getEndorphins().get(getDayCounter()-1))*(0.16667)>=100 ) {
-            enPoint = 100;
-        } else if ((getEndorphins().get(getDayCounter()-1))*(0.16667)<=0){
-            enPoint = 0;
-        } else {
-            enPoint = (getEndorphins().get(getDayCounter()-1))*(0.16667);
-            enPoint = BigDecimal.valueOf(enPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
-        }
+            if ((getSerotonin().get(getDayCounter() - 1)) * (0.05) >= 100) {
+                sePoint = 100;
+            } else if ((getSerotonin().get(getDayCounter() - 1)) * (0.05) <= 0) {
+                sePoint = 0;
+            } else {
+                sePoint = (getSerotonin().get(getDayCounter() - 1)) * (0.05);
+                sePoint = BigDecimal.valueOf(sePoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            }
 
-        if((getSerotonin().get(getDayCounter()-1))*(0.05)>=100 ) {
-            sePoint = 100;
-        } else if ((getSerotonin().get(getDayCounter()-1))*(0.05)<=0){
-            sePoint = 0;
-        } else {
-            sePoint = (getSerotonin().get(getDayCounter()-1))*(0.05);
-            sePoint = BigDecimal.valueOf(sePoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
-        }
+            if ((getOxytocin().get(getDayCounter() - 1)) * (0.09234) >= 100) {
+                oxPoint = 100;
+            } else if ((getOxytocin().get(getDayCounter() - 1)) * (0.09234) <= 0) {
+                oxPoint = 0;
+            } else {
+                oxPoint = (getOxytocin().get(getDayCounter() - 1)) * (0.09234);
+                oxPoint = BigDecimal.valueOf(oxPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            }
 
-        if((getOxytocin().get(getDayCounter()-1))*(0.09234)>=100 ) {
-            oxPoint = 100;
-        } else if ((getOxytocin().get(getDayCounter()-1))*(0.09234)<=0){
-            oxPoint = 0;
-        } else {
-            oxPoint = (getOxytocin().get(getDayCounter()-1))*(0.09234);
-            oxPoint = BigDecimal.valueOf(oxPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
-        }
-
-        haPoint = (doPoint/4) + (sePoint/4) + (enPoint/4) + (oxPoint/4);
-        haPoint = BigDecimal.valueOf(haPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
-        if (haPoint<=0) {
-            haPoint = 0;
-            return haPoint;
-        }
-        else {
-            return haPoint;
+            haPoint = (doPoint / 4) + (sePoint / 4) + (enPoint / 4) + (oxPoint / 4);
+            haPoint = BigDecimal.valueOf(haPoint).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            if (haPoint <= 0) {
+                haPoint = 0;
+                return haPoint;
+            } else {
+                return haPoint;
+            }
+        } catch (Exception e) {
+            return -1;
         }
     }
 

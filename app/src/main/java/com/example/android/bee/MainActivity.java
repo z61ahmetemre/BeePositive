@@ -1,5 +1,6 @@
 package com.example.android.bee;
 
+import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +46,29 @@ public class MainActivity extends AppCompatActivity
         mDatabase.child("users").child(mAuth.getUid()).child("updater").setValue("+");
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        /*FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setVisibility(View.INVISIBLE);
+        final FloatingActionButton fab2 = findViewById(R.id.fab2);
+        /*fab.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("RestrictedApi")
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                user.setDayCounter(user.getDayCounter()+1);
+                mDatabase.child("users").child(mAuth.getUid()).child("dayCounter").setValue(user.getDayCounter());
+                fab2.setVisibility(View.VISIBLE);
+                Snackbar.make(view, "Day counter: " + user.getDayCounter(), Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
+            }
+        });
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("RestrictedApi")
+            @Override
+            public void onClick(View view) {
+                user.setDayCounter(user.calculateDayCounter());
+                mDatabase.child("users").child(mAuth.getUid()).child("dayCounter").setValue(user.getDayCounter());
+                Snackbar.make(view, "Day counter reset. Day counter: " + user.getDayCounter(), Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+                fab2.setVisibility(View.INVISIBLE);
             }
         });*/
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -247,6 +266,13 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
 
+        } else if (id == R.id.nav_analysis) {
+            toolbar.setTitle("Analysis");
+            AnalysisFragment fragment = new AnalysisFragment();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.your_placeholder, fragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_settings) {
             toolbar.setTitle("Settings");
             SettingsFragment settingsFragment = new SettingsFragment();

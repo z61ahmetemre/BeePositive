@@ -1,5 +1,6 @@
 package com.example.android.bee;
 
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -30,10 +31,6 @@ public class ServerManager {
         return instance;
     }
 
-    public void getHappinessHistory() {
-        return;
-    }
-
     /**
      * This method will pull the data of the user from database every time opening app.
      * In User object, there is integer value storing test number. According to this
@@ -50,8 +47,9 @@ public class ServerManager {
             mDatabase.child("users").child(mAuth.getUid()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if(!user.getUpdater().equals("-")) {
+                    if (!user.getUpdater().equals("-")) {
                         holder[0] = dataSnapshot.getValue(UserHolder.class);
+                        user.setDayCounter(holder[0].getDayCounter());
                         user.setName(holder[0].getName());
                         user.setUserID(holder[0].getUserID());
                         user.setSex(holder[0].getSex());
@@ -67,7 +65,6 @@ public class ServerManager {
                         user.setTestCounter(holder[0].getTestCounter());
                         user.setRegisrationDate(holder[0].getRegisrationDate());
                         user.setWeekCounter(holder[0].getWeekCounter());
-                        user.setDayCounter(holder[0].getDayCounter());
                         user.setMomentCounter(holder[0].getMomentCounter());
                         user.setMoments(holder[0].getMoments());
                         user.setDailyTests(holder[0].getDailyTests());
@@ -85,12 +82,15 @@ public class ServerManager {
         }
     }
 
-    public void deleteAccount() {
-        return;
-    }
-
-    public void getTestDataFromServer() {
-        return;
+    public void sendNLPDataToDatabase(int i) {
+        final Testing testing = new Testing(i);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                testing.analyzeAnswers();
+            }
+        }, 1000);
     }
 
     public void createAccount() {
