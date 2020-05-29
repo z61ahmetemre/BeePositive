@@ -48,27 +48,31 @@ public class ServerManager {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (!user.getUpdater().equals("-")) {
-                        holder[0] = dataSnapshot.getValue(UserHolder.class);
-                        user.setDayCounter(holder[0].getDayCounter());
-                        user.setName(holder[0].getName());
-                        user.setUserID(holder[0].getUserID());
-                        user.setSex(holder[0].getSex());
-                        user.setHappinessPercentage(holder[0].getHappinessPercentage());
-                        user.setAge(holder[0].getAge());
-                        user.setDopamine(holder[0].getDopamine());
-                        user.setSerotonin(holder[0].getSerotonin());
-                        user.setEndorphins(holder[0].getEndorphins());
-                        user.setOxytocin(holder[0].getOxytocin());
-                        user.setPassword(holder[0].getPassword());
-                        user.setHappinessHistory(holder[0].getHappinessHistory());
-                        user.setNotes(holder[0].getNotes());
-                        user.setTestCounter(holder[0].getTestCounter());
-                        user.setRegisrationDate(holder[0].getRegisrationDate());
-                        user.setWeekCounter(holder[0].getWeekCounter());
-                        user.setMomentCounter(holder[0].getMomentCounter());
-                        user.setMoments(holder[0].getMoments());
-                        user.setDailyTests(holder[0].getDailyTests());
-                        user.setWeeklyTests(holder[0].getWeeklyTests());
+                        try {
+                            holder[0] = dataSnapshot.getValue(UserHolder.class);
+                            user.setDayCounter(holder[0].getDayCounter());
+                            user.setName(holder[0].getName());
+                            user.setUserID(holder[0].getUserID());
+                            user.setSex(holder[0].getSex());
+                            user.setHappinessPercentage(holder[0].getHappinessPercentage());
+                            user.setAge(holder[0].getAge());
+                            user.setDopamine(holder[0].getDopamine());
+                            user.setSerotonin(holder[0].getSerotonin());
+                            user.setEndorphins(holder[0].getEndorphins());
+                            user.setOxytocin(holder[0].getOxytocin());
+                            user.setPassword(holder[0].getPassword());
+                            user.setHappinessHistory(holder[0].getHappinessHistory());
+                            user.setNotes(holder[0].getNotes());
+                            user.setTestCounter(holder[0].getTestCounter());
+                            user.setRegisrationDate(holder[0].getRegisrationDate());
+                            user.setWeekCounter(holder[0].getWeekCounter());
+                            user.setMomentCounter(holder[0].getMomentCounter());
+                            user.setMoments(holder[0].getMoments());
+                            user.setDailyTests(holder[0].getDailyTests());
+                            user.setWeeklyTests(holder[0].getWeeklyTests());
+                        } catch (Exception e) {
+                            Log.e("**********SYNC ERROR***", "ERROR");
+                        }
                     }
                 }
 

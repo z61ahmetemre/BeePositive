@@ -3,6 +3,7 @@ package com.example.android.bee;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
@@ -159,6 +160,7 @@ public class SettingsAdapter extends RecyclerView.Adapter {
                     @Override
                     public void onClick(View view) {
                         deleteUser();
+                        ((Activity)view.getContext()).finish();
                         Intent intent = new Intent(view.getContext(), LoginActivity.class);
                         ((Activity)view.getContext()).startActivityForResult(intent, 0);
                         return;
@@ -196,8 +198,7 @@ public class SettingsAdapter extends RecyclerView.Adapter {
                     if (task.isSuccessful()) {
                         mDatabase.child("users").child(uid).setValue(null);
                         mAuth.signOut();
-                        user.setUpdater("-");
-
+                        user = null;
                         Log.d("USER DELETED:", "User account deleted.");
                     }
                 }
