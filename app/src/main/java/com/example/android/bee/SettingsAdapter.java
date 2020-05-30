@@ -72,20 +72,24 @@ public class SettingsAdapter extends RecyclerView.Adapter {
         s_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                user.setName(String.valueOf(name.getText()));
-                mDatabase.child("users").child(mAuth.getUid()).child("name").setValue(String.valueOf(name.getText()));
-                name.setText("");
-                name.setHint(user.getName());
+                if(String.valueOf(name.getText()).length()>0) {
+                    user.setName(String.valueOf(name.getText()));
+                    mDatabase.child("users").child(mAuth.getUid()).child("name").setValue(String.valueOf(name.getText()));
+                    name.setText("");
+                    name.setHint(user.getName());
+                }
             }
         });
 
         s_age.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                user.setName(String.valueOf(age.getText()));
-                mDatabase.child("users").child(mAuth.getUid()).child("age").setValue(Integer.parseInt(String.valueOf(age.getText())));
-                age.setText("");
-                age.setHint(user.getAge());
+                if(String.valueOf(age.getText()).length()>0) {
+                    user.setAge(Integer.parseInt(String.valueOf(age.getText())));
+                    mDatabase.child("users").child(mAuth.getUid()).child("age").setValue(Integer.parseInt(String.valueOf(age.getText())));
+                    age.setText("");
+                    age.setHint(user.getAge() + "");
+                }
             }
         });
 
